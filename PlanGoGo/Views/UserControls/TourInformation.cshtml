@@ -1,1 +1,64 @@
-﻿
+﻿@using BusinessEntites;
+@model PlanGoGo.Models.UserControls.AttractionsInformation
+@{
+    Layout = null;
+}
+
+<table cellpadding="0" cellspacing="0" border="1">
+    <tr>
+        <th>
+            Start Time
+        </th>
+        <th>
+            Source Name
+        </th>
+        <th>
+            Destination Name
+        </th>
+        <th>
+            Travel Type
+        </th>
+        <th>
+            Reach Time
+        </th>
+        <th>
+            Time Required To View
+        </th>
+        <th>
+            View Time
+        </th>
+    </tr>
+        @if (Model.attractionsList != null)
+        {
+        foreach (GetOrderOfAttractionVisit _attraction in Model.attractionsList)
+        {
+
+    <tr >
+       
+                    <td>
+                        @_attraction.DateAndTime
+                        
+                    </td>
+                    <td>
+                        <img src="@_attraction.SourceIcon" alt="@_attraction.SourceAttractionName" width="30px" height="30px" />
+                        @_attraction.SourceAttractionName
+                        TO
+                        <img src="@_attraction.DestinationIcon" alt="@_attraction.DestinationAttractionName" width="30px" height="30px" />
+                        @_attraction.DestinationAttractionName
+                    </td>
+                    <td>
+                        @_attraction.TravelType
+
+                        @_attraction.ReachTime
+                        <br />
+                        @_attraction.TimeRequiredToView
+                    </td>
+                    <td>
+                        @_attraction.ViewTime
+                    </td>
+                </tr>
+
+        }
+        }
+
+</table>

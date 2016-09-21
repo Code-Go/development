@@ -64,63 +64,7 @@
 
 
                             <div>
-                                <table cellpadding="0" cellspacing="0" border="1" ng-show="OrderOfAttractionList.length">
-                                    <tr>
-                                        <th>
-                                            Start Time
-                                        </th>
-                                        <th>
-                                            Source Name
-                                        </th>
-                                        <th>
-                                            Destination Name
-                                        </th>
-                                        <th>
-                                            Travel Type
-                                        </th>
-                                        <th>
-                                            Reach Time
-                                        </th>
-                                        <th>
-                                            Time Required To View
-                                        </th>
-                                        <th>
-                                            View Time
-                                        </th>
-                                    </tr>
-                                    <tr ng-repeat="_date in OrderOfAttractionList">
-                                        <td valign="top">
-                                            {{_date.GroupDate}} Attractions: {{_date.ListGetOrderOfAttractionVisit.length}}
-                                        </td>
-                                        <td>
-                                            <table cellpadding="0" cellspacing="0" border="1">
-                                                <tr ng-repeat="orderOfAttraction in _date.ListGetOrderOfAttractionVisit">
-                                                    <td>
-                                                        {{orderOfAttraction.DateAndTime}}
-                                                    </td>
-                                                    <td>
-                                                        <img src="{{orderOfAttraction.SourceIcon}}" alt="{{orderOfAttraction.SourceAttractionName}}" width="30px" height="30px" />
-                                                        {{orderOfAttraction.SourceAttractionName}}
-                                                        TO
-                                                        <img src="{{orderOfAttraction.DestinationIcon}}" alt="{{orderOfAttraction.DestinationAttractionName}}" width="30px" height="30px" />
-                                                        {{orderOfAttraction.DestinationAttractionName}}
-                                                    </td>
-                                                    <td>
-                                                        {{orderOfAttraction.TravelType}}
-
-                                                        {{orderOfAttraction.ReachTime}}
-                                                        <br />
-                                                        {{orderOfAttraction.TimeRequiredToView}}
-                                                    </td>
-                                                    <td>
-                                                        {{orderOfAttraction.ViewTime}}
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-
-                                </table>
+                               
                             </div>
                         </div>
                         <div id="tab_TourMap">

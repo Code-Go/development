@@ -9,3 +9,14 @@ D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\DataAccessLayer\obj\De
 D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
 D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\DataAccessLayer\bin\Debug\CommonObjects.dll
 D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\DataAccessLayer\bin\Debug\CommonObjects.pdb
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\DataAccessLayer\bin\Debug\BusinessEntites.dll
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\DataAccessLayer\bin\Debug\CommonObjects.dll
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\DataAccessLayer\bin\Debug\Dapper.dll
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\DataAccessLayer\bin\Debug\BusinessEntites.pdb
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\DataAccessLayer\bin\Debug\CommonObjects.pdb
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\DataAccessLayer\bin\Debug\Dapper.xml
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

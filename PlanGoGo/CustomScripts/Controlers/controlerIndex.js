@@ -187,7 +187,11 @@ appPlanGoGo.controller('controlerIndex', function ($scope, $http) {
                 "<li><a href='#tab_" + groupValue.GroupDate.replace("/", "_").replace("/", "_") + "'>" + groupValue.GroupDate + "</a></li>"
             );
             $("div#subtabs").append(
-                        "<div id='tab_" + groupValue.GroupDate.replace("/", "_").replace("/", "_") + "'>" + groupValue.GroupDate + "</div>"
+                        "<div id='tab_" + groupValue.GroupDate.replace("/", "_").replace("/", "_") + "'>" +
+                        TourInformation(
+                                            "tab_" + groupValue.GroupDate.replace("/", "_").replace("/", "_")
+                                            , groupValue.ListGetOrderOfAttractionVisit
+                                        ) + "</div>"
                     );
             $("div#subtabs").tabs("refresh");
         }

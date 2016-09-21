@@ -3,3 +3,8 @@ D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\CommonObjects\bin\Debu
 D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\CommonObjects\obj\Debug\CommonObjects.csprojResolveAssemblyReference.cache
 D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\CommonObjects\obj\Debug\CommonObjects.dll
 D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\CommonObjects\obj\Debug\CommonObjects.pdb
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\CommonObjects\bin\Debug\CommonObjects.dll
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\CommonObjects\bin\Debug\CommonObjects.pdb
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\CommonObjects\obj\Debug\CommonObjects.csprojResolveAssemblyReference.cache
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\CommonObjects\obj\Debug\CommonObjects.dll
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\CommonObjects\obj\Debug\CommonObjects.pdb

@@ -3,3 +3,8 @@ D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\BusinessEntites\bin\De
 D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\BusinessEntites\obj\Debug\BusinessEntites.dll
 D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\BusinessEntites\obj\Debug\BusinessEntites.pdb
 D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\BusinessEntites\obj\Debug\BusinessEntites.csprojResolveAssemblyReference.cache
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\BusinessEntites\bin\Debug\BusinessEntites.dll
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\BusinessEntites\bin\Debug\BusinessEntites.pdb
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\BusinessEntites\obj\Debug\BusinessEntites.csprojResolveAssemblyReference.cache
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\BusinessEntites\obj\Debug\BusinessEntites.dll
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\BusinessEntites\obj\Debug\BusinessEntites.pdb

@@ -1,0 +1,5 @@
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\Attractions\bin\Debug\Attractions.dacpac
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\Attractions\bin\Debug\Attractions.dll
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\Attractions\bin\Debug\Attractions.pdb
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\Attractions\obj\Debug\Attractions.dll
+D:\Srinivas\Personal\Projects\Attractions\Source\Development\Attractions\obj\Debug\Attractions.pdb

@@ -8,6 +8,6 @@ namespace PlanGoGo.Models.UserControls
 {
     public class AttractionsInformation
     {
-        public List<public_FilterAttractions> attractionsList { get; set; }
+        public List<GetOrderOfAttractionVisit> attractionsList { get; set; }
     }
 }

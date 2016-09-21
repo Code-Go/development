@@ -103,3 +103,30 @@ function Public_GetOrderOfAttractionVisit(angularScope, http) {
         }
     });
 }
+
+//Gettigng the attraction information
+function TourInformation(divId,tourInformation)
+{
+    
+    var jsonObject = { "public_FilterAttractions": tourInformation };
+    $.ajax({
+        type: "POST",
+        url: '/UserControls/TourInformation',
+        data: JSON.stringify(jsonObject),
+        dataType: "html",
+        contentType: "application/json; charset=utf-8",
+        beforeSend: function () {
+
+        },
+        success: function (data) {
+            $("#" + divId).empty();
+            $("#" + divId).append(data);            
+        },
+        error: function (result) {
+            alert('Service call failed: ' + result.status + ' Type :' + result.statusText);
+        },
+        complete: function () {
+
+        }
+    });
+}

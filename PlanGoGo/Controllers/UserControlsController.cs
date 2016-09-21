@@ -11,7 +11,7 @@ namespace PlanGoGo.Controllers
     public class UserControlsController : Controller
     {
         // GET: UserControls
-        public ActionResult TourInformation(List<public_FilterAttractions> public_FilterAttractions)
+        public ActionResult TourInformation(List<GetOrderOfAttractionVisit> public_FilterAttractions)
         {
             AttractionsInformation model = new AttractionsInformation()
             {
