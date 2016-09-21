@@ -1,0 +1,5 @@
+D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\BusinessEntites\bin\Debug\BusinessEntites.dll
+D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\BusinessEntites\bin\Debug\BusinessEntites.pdb
+D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\BusinessEntites\obj\Debug\BusinessEntites.dll
+D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\BusinessEntites\obj\Debug\BusinessEntites.pdb
+D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\BusinessEntites\obj\Debug\BusinessEntites.csprojResolveAssemblyReference.cache

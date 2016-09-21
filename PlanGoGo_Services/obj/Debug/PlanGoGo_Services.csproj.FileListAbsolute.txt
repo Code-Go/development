@@ -1,0 +1,6 @@
+D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\PlanGoGo_Services\bin\Debug\PlanGoGo_Services.dll.config
+D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\PlanGoGo_Services\bin\Debug\PlanGoGo_Services.dll
+D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\PlanGoGo_Services\bin\Debug\PlanGoGo_Services.pdb
+D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\PlanGoGo_Services\obj\Debug\PlanGoGo_Services.csprojResolveAssemblyReference.cache
+D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\PlanGoGo_Services\obj\Debug\PlanGoGo_Services.dll
+D:\Srinivas\Personal\Projects\Attractions\Source\PlanGoGo\PlanGoGo_Services\obj\Debug\PlanGoGo_Services.pdb
