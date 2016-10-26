@@ -8,9 +8,13 @@ namespace PlanGoGoService.BaseClasses
     public class BaseReference
     {
         public BusinessAccessLayer.IGetListValues _businessAccess;
+
+        public BusinessAccessLayer.IUser _businessUser;
+
         public BaseReference()
         {
             _businessAccess = new BusinessAccessLayer.GetListValues();
+            _businessUser = new BusinessAccessLayer.User();
         }
     }
 }

@@ -9,6 +9,9 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Unity.Mvc5;
 using PlanGoGo.Repository;
+using System.Web.Security;
+using System.Web.Script.Serialization;
+using PlanGoGoAdmin.Helper.Principal;
 
 namespace PlanGoGo
 {
@@ -41,6 +44,27 @@ namespace PlanGoGo
             IUnityContainer container = new UnityContainer()
                 .RegisterType<PlanGoGo.Repository.IGetListValues, PlanGoGo.Repository.GetListValues>();
             return container;
+        }
+
+        protected void Session_OnStart(object sender, EventArgs e)
+        {
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+
+            if (authCookie != null)
+            {
+                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+                CustomPrincipalSerializeModel serializeModel = serializer.Deserialize<CustomPrincipalSerializeModel>(authTicket.UserData);
+
+                CustomPrincipal newUser = new CustomPrincipal(authTicket.Name);
+                newUser.Id = serializeModel.Id;
+                newUser.UserName = serializeModel.UserName;                
+
+                HttpContext.Current.User = newUser;
+                Response.Redirect("/User/ManageUser");
+            }
         }
     }
 }

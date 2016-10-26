@@ -8,3 +8,8 @@ D:\Srinivas\Personal\Projects\Attractions\Source\Development\CommonObjects\bin\D
 D:\Srinivas\Personal\Projects\Attractions\Source\Development\CommonObjects\obj\Debug\CommonObjects.csprojResolveAssemblyReference.cache
 D:\Srinivas\Personal\Projects\Attractions\Source\Development\CommonObjects\obj\Debug\CommonObjects.dll
 D:\Srinivas\Personal\Projects\Attractions\Source\Development\CommonObjects\obj\Debug\CommonObjects.pdb
+C:\Srinivas\Personal\Projects\Tour\CommonObjects\bin\Debug\CommonObjects.dll
+C:\Srinivas\Personal\Projects\Tour\CommonObjects\bin\Debug\CommonObjects.pdb
+C:\Srinivas\Personal\Projects\Tour\CommonObjects\obj\Debug\CommonObjects.csprojResolveAssemblyReference.cache
+C:\Srinivas\Personal\Projects\Tour\CommonObjects\obj\Debug\CommonObjects.dll
+C:\Srinivas\Personal\Projects\Tour\CommonObjects\obj\Debug\CommonObjects.pdb

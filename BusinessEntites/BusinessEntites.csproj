@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BusinessEntites</RootNamespace>
     <AssemblyName>BusinessEntites</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AdminUser.cs" />
     <Compile Include="Admin_GetCountryList.cs" />
+    <Compile Include="Admin_GetUser.cs" />
     <Compile Include="Custom\GroupWithDateAttractions.cs" />
     <Compile Include="GetAttractionOpenTime.cs" />
     <Compile Include="GetNextNearestLocation.cs" />

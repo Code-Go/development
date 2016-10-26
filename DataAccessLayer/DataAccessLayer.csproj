@@ -44,10 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\User.cs" />
     <Compile Include="BaseDAL.cs" />
     <Compile Include="GetListValues.cs" />
     <Compile Include="Helper\SqlHelper.cs" />
     <Compile Include="Interface\IGetListValues.cs" />
+    <Compile Include="Interface\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

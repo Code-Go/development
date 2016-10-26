@@ -13,9 +13,12 @@ namespace BusinessAccessLayer.Common
     public class BaseBusinessClass
     {
         public DataAccessLayer.IGetListValues _dataAccess;
+        public DataAccessLayer.IUser _dataAccessAdminUser;
+
         public BaseBusinessClass()
         {
             _dataAccess = new DataAccessLayer.GetListValues();
+            _dataAccessAdminUser = new DataAccessLayer.User();
             //IUnityContainer container = GetUnityContainer();
             //DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

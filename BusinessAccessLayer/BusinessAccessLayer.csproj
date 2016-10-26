@@ -88,10 +88,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\User.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Common\BaseBusinessClass.cs" />
     <Compile Include="GetListValues.cs" />
     <Compile Include="Interfaces\IGetListValues.cs" />
+    <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

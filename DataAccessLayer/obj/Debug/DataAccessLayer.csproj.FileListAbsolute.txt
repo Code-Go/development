@@ -20,3 +20,14 @@ D:\Srinivas\Personal\Projects\Attractions\Source\Development\DataAccessLayer\bin
 D:\Srinivas\Personal\Projects\Attractions\Source\Development\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 D:\Srinivas\Personal\Projects\Attractions\Source\Development\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 D:\Srinivas\Personal\Projects\Attractions\Source\Development\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Srinivas\Personal\Projects\Tour\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Srinivas\Personal\Projects\Tour\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Srinivas\Personal\Projects\Tour\DataAccessLayer\bin\Debug\BusinessEntites.dll
+C:\Srinivas\Personal\Projects\Tour\DataAccessLayer\bin\Debug\CommonObjects.dll
+C:\Srinivas\Personal\Projects\Tour\DataAccessLayer\bin\Debug\Dapper.dll
+C:\Srinivas\Personal\Projects\Tour\DataAccessLayer\bin\Debug\BusinessEntites.pdb
+C:\Srinivas\Personal\Projects\Tour\DataAccessLayer\bin\Debug\CommonObjects.pdb
+C:\Srinivas\Personal\Projects\Tour\DataAccessLayer\bin\Debug\Dapper.xml
+C:\Srinivas\Personal\Projects\Tour\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Srinivas\Personal\Projects\Tour\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Srinivas\Personal\Projects\Tour\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
