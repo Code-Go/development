@@ -8,3 +8,7 @@ C:\Srinivas\Personal\Projects\Tour\Attractions\bin\Debug\Attractions.dll
 C:\Srinivas\Personal\Projects\Tour\Attractions\bin\Debug\Attractions.pdb
 C:\Srinivas\Personal\Projects\Tour\Attractions\obj\Debug\Attractions.dll
 C:\Srinivas\Personal\Projects\Tour\Attractions\obj\Debug\Attractions.pdb
+C:\Srinivas\Personal\Projects\Tour\Attractions\obj\Debug\Model.xml
+C:\Srinivas\Personal\Projects\Tour\Attractions\obj\Debug\refactor.xml
+C:\Srinivas\Personal\Projects\Tour\Attractions\obj\Debug\postdeploy.sql
+C:\Srinivas\Personal\Projects\Tour\Attractions\obj\Debug\predeploy.sql

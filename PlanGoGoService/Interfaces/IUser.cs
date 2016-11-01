@@ -27,5 +27,6 @@ namespace PlanGoGoService
 
         [OperationContract]
         Admin_GetUser Admin_GetUserOnId(int AdminUserId);
+
     }
 }

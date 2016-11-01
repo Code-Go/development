@@ -109,6 +109,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Country.svc" />
     <Content Include="Admin\User.svc" />
     <Content Include="GetListValues.svc" />
     <Content Include="Global.asax" />
@@ -117,6 +118,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Country.svc.cs">
+      <DependentUpon>Country.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ICountry.cs" />
     <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="Admin\User.svc.cs">
       <DependentUpon>User.svc</DependentUpon>

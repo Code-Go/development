@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\AdminUser.cs" />
+    <Compile Include="Admin\MasterCountryDTO.cs" />
     <Compile Include="Admin_GetCountryList.cs" />
     <Compile Include="Admin_GetUser.cs" />
     <Compile Include="Custom\GroupWithDateAttractions.cs" />

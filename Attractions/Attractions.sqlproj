@@ -101,5 +101,9 @@
     <Build Include="dbo\Stored Procedures\Admin_CheckUserExist.sql" />
     <Build Include="dbo\Stored Procedures\Admin_UpdateUser.sql" />
     <Build Include="dbo\Stored Procedures\Admin_GetUserOnId.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_UpdateCountry.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_GetCountry.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_CheckCountryExist.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_GetCountryOnId.sql" />
   </ItemGroup>
 </Project>

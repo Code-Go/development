@@ -445,6 +445,10 @@ CREATE TABLE [dbo].[MasterCountry] (
     [CountryId]        INT           NOT NULL,
     [CountryName]      VARCHAR (250) NULL,
     [CountryShortName] VARCHAR (50)  NULL,
+    [CreatedBy]        VARCHAR (50)  NULL,
+    [CreatedDate]      DATETIME      NULL,
+    [ModifiedBy]       VARCHAR (50)  NULL,
+    [ModifiedDate]     DATETIME      NULL,
     CONSTRAINT [PK_MaterCountry] PRIMARY KEY CLUSTERED ([CountryId] ASC)
 );
 
@@ -1102,6 +1106,131 @@ SELECT [AdminUserId]
   WHERE AdminUserId = @AdminUserId
 
 
+
+
+END
+GO
+PRINT N'Creating [dbo].[Admin_UpdateCountry]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Admin_UpdateCountry] 
+(
+	@CountryId INT
+	,@CountryName Varchar(250)
+	,@CountryShortName Varchar(50)	
+	,@CreatedBy Varchar(50)
+	
+)
+AS
+BEGIN
+	IF(@CountryId = 0)
+	BEGIN		
+		
+		INSERT INTO [dbo].[MasterCountry]
+			   ([CountryName]
+			   ,[CountryShortName]
+			   ,[CreatedBy]
+			   ,[CreatedDate]
+			   )
+		 VALUES
+			   (@CountryName
+			   ,@CountryShortName
+			   ,@CreatedBy
+			   ,GETDATE()
+			   )
+	END
+	ELSE
+	BEGIN		
+
+		UPDATE [dbo].[MasterCountry]
+		   SET [CountryName] = @CountryName
+			  ,[CountryShortName] = @CountryShortName			  
+			  ,[ModifiedBy] = @CreatedBy
+			  ,[ModifiedDate] = GETDATE()
+		 WHERE [CountryId] = @CountryId
+	END
+END
+GO
+PRINT N'Creating [dbo].[Admin_GetCountry]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Admin_GetCountry] 
+AS
+BEGIN
+	SELECT [CountryId]
+			,[CountryName]
+			,[CountryShortName]
+			,[CreatedBy]
+			,[CreatedDate]
+			,[ModifiedBy]
+			,[ModifiedDate]
+	FROM [dbo].[MasterCountry]
+END
+GO
+PRINT N'Creating [dbo].[Admin_CheckCountryExist]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Admin_CheckCountryExist] 
+	@CountryName Varchar(250)
+	,@CountryId INT
+AS
+BEGIN	
+
+	IF(@CountryId = 0)
+	BEGIN	
+
+		SELECT [CountryId]
+		  ,[CountryName]
+		  ,[CountryShortName]
+		  ,[CreatedBy]
+		  ,[CreatedDate]
+		  ,[ModifiedBy]
+		  ,[ModifiedDate]
+		FROM [dbo].[MasterCountry]
+		WHERE CountryName = @CountryName
+
+	END
+	ELSE
+	BEGIN
+		
+
+		SELECT [CountryId]
+		  ,[CountryName]
+		  ,[CountryShortName]
+		  ,[CreatedBy]
+		  ,[CreatedDate]
+		  ,[ModifiedBy]
+		  ,[ModifiedDate]
+		FROM [dbo].[MasterCountry]
+		WHERE CountryName = @CountryName
+		AND CountryId NOT IN (@CountryId)
+	END
+END
+GO
+PRINT N'Creating [dbo].[Admin_GetCountryOnId]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Admin_GetCountryOnId]
+(
+	@CountryId INT
+)
+AS
+BEGIN
+	
+
+	SELECT [CountryId]
+      ,[CountryName]
+      ,[CountryShortName]
+      ,[CreatedBy]
+      ,[CreatedDate]
+      ,[ModifiedBy]
+      ,[ModifiedDate]
+	FROM [dbo].[MasterCountry]
+	WHERE CountryId = @CountryId
 
 
 END

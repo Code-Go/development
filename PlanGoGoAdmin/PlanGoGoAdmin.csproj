@@ -1045,6 +1045,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1076,6 +1077,8 @@
     <None Include="Service References\AdminUser\User3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\Country\AddCountry.cshtml" />
+    <Content Include="Views\Country\ManageCountry.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

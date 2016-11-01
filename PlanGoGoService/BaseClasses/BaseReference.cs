@@ -11,10 +11,13 @@ namespace PlanGoGoService.BaseClasses
 
         public BusinessAccessLayer.IUser _businessUser;
 
+        public BusinessAccessLayer.Interfaces.ICountry _businessCountry;
+
         public BaseReference()
         {
             _businessAccess = new BusinessAccessLayer.GetListValues();
             _businessUser = new BusinessAccessLayer.User();
+            _businessCountry = new BusinessAccessLayer.Admin.Country();
         }
     }
 }

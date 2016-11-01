@@ -14,11 +14,14 @@ namespace BusinessAccessLayer.Common
     {
         public DataAccessLayer.IGetListValues _dataAccess;
         public DataAccessLayer.IUser _dataAccessAdminUser;
+        public DataAccessLayer.Interface.ICountry _dataAccessCountry;
+
 
         public BaseBusinessClass()
         {
             _dataAccess = new DataAccessLayer.GetListValues();
             _dataAccessAdminUser = new DataAccessLayer.User();
+            _dataAccessCountry = new DataAccessLayer.Admin.Country();
             //IUnityContainer container = GetUnityContainer();
             //DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
