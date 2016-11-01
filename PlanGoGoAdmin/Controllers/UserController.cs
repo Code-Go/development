@@ -94,7 +94,15 @@ namespace PlanGoGoAdmin.Controllers
         public ActionResult AddUpdateUser(int adminUserId)
         {
             ModelAddUpdateUser model = new ModelAddUpdateUser();
-            model.AdminUserId = adminUserId;
+            if(adminUserId >0)
+            {
+                Admin_GetUser _adminUser = _IUser.Admin_GetUserOnId(adminUserId);
+                model.AdminUserId = _adminUser.AdminUserId;
+                model.UserName = _adminUser.UserName;
+                model.Password = _adminUser.Password;
+            }
+            
+            
             return View(model);
         }
 

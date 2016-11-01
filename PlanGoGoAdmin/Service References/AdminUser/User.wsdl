@@ -32,6 +32,12 @@
   <wsdl:message name="IUser_Admin_CheckUserExist_OutputMessage">
     <wsdl:part name="parameters" element="tns:Admin_CheckUserExistResponse" />
   </wsdl:message>
+  <wsdl:message name="IUser_Admin_GetUserOnId_InputMessage">
+    <wsdl:part name="parameters" element="tns:Admin_GetUserOnId" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Admin_GetUserOnId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Admin_GetUserOnIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUser">
     <wsdl:operation name="CheckUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IUser/CheckUser" message="tns:IUser_CheckUser_InputMessage" />
@@ -48,6 +54,10 @@
     <wsdl:operation name="Admin_CheckUserExist">
       <wsdl:input wsaw:Action="http://tempuri.org/IUser/Admin_CheckUserExist" message="tns:IUser_Admin_CheckUserExist_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUser/Admin_CheckUserExistResponse" message="tns:IUser_Admin_CheckUserExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Admin_GetUserOnId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/Admin_GetUserOnId" message="tns:IUser_Admin_GetUserOnId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/Admin_GetUserOnIdResponse" message="tns:IUser_Admin_GetUserOnId_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUser" type="tns:IUser">
@@ -81,6 +91,15 @@
     </wsdl:operation>
     <wsdl:operation name="Admin_CheckUserExist">
       <soap:operation soapAction="http://tempuri.org/IUser/Admin_CheckUserExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Admin_GetUserOnId">
+      <soap:operation soapAction="http://tempuri.org/IUser/Admin_GetUserOnId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

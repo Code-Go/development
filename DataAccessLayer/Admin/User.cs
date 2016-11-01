@@ -96,6 +96,28 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Getting the user information based on the user id
+        /// </summary>
+        /// <param name="AdminUserId">Admin User auto increment number of table</param>
+        /// <returns></returns>
+        public Admin_GetUser Admin_GetUserOnId(int AdminUserId)
+        {
+            try
+            {
+                Admin_GetUser _returnResult = SqlHelper.QuerySP<Admin_GetUser>("Admin_GetUserOnId",
+                    new
+                    {                       
+                        AdminUserId = AdminUserId
+                    }).ToList().FirstOrDefault();
+                return _returnResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void Dispose()
         {            
             GC.SuppressFinalize(this); 

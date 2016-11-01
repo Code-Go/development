@@ -24,5 +24,8 @@ namespace PlanGoGoService
 
         [OperationContract]
         List<Admin_GetUser> Admin_CheckUserExist(string userName, int AdminUserId);
+
+        [OperationContract]
+        Admin_GetUser Admin_GetUserOnId(int AdminUserId);
     }
 }

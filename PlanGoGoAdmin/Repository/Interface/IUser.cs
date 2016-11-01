@@ -16,5 +16,7 @@ namespace PlanGoGoAdmin.Repository.Interface
         void Admin_UpdateUser(string userName, string password, string CreatedBy, int AdminUserId);
 
         List<Admin_GetUser> Admin_CheckUserExist(string userName, int AdminUserId);
+
+        Admin_GetUser Admin_GetUserOnId(int AdminUserId);
     }
 }

@@ -60,6 +60,21 @@ namespace BusinessAccessLayer
             }
         }
 
+        public Admin_GetUser Admin_GetUserOnId(int AdminUserId)
+        {
+            try
+            {
+                return _dataAccessAdminUser.Admin_GetUserOnId(AdminUserId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+
         public void Dispose()
         {
             GC.SuppressFinalize(this);

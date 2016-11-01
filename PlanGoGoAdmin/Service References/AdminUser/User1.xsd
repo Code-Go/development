@@ -59,4 +59,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Admin_GetUserOnId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AdminUserId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Admin_GetUserOnIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BusinessEntites" minOccurs="0" name="Admin_GetUserOnIdResult" nillable="true" type="q4:Admin_GetUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

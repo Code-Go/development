@@ -100,5 +100,6 @@
     <Build Include="dbo\Stored Procedures\Admin_GetUser.sql" />
     <Build Include="dbo\Stored Procedures\Admin_CheckUserExist.sql" />
     <Build Include="dbo\Stored Procedures\Admin_UpdateUser.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_GetUserOnId.sql" />
   </ItemGroup>
 </Project>

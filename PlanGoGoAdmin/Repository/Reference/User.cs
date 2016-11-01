@@ -61,5 +61,17 @@ namespace PlanGoGoAdmin.Repository.Reference
                 throw ex;
             }
         }
+
+        public Admin_GetUser Admin_GetUserOnId(int AdminUserId)
+        {
+            try
+            {
+                return _client.Admin_GetUserOnId(AdminUserId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

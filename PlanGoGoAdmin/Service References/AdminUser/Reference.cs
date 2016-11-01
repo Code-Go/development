@@ -38,6 +38,12 @@ namespace PlanGoGoAdmin.AdminUser {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Admin_CheckUserExist", ReplyAction="http://tempuri.org/IUser/Admin_CheckUserExistResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<BusinessEntites.Admin_GetUser>> Admin_CheckUserExistAsync(string userName, int AdminUserId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Admin_GetUserOnId", ReplyAction="http://tempuri.org/IUser/Admin_GetUserOnIdResponse")]
+        BusinessEntites.Admin_GetUser Admin_GetUserOnId(int AdminUserId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Admin_GetUserOnId", ReplyAction="http://tempuri.org/IUser/Admin_GetUserOnIdResponse")]
+        System.Threading.Tasks.Task<BusinessEntites.Admin_GetUser> Admin_GetUserOnIdAsync(int AdminUserId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,6 +103,14 @@ namespace PlanGoGoAdmin.AdminUser {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<BusinessEntites.Admin_GetUser>> Admin_CheckUserExistAsync(string userName, int AdminUserId) {
             return base.Channel.Admin_CheckUserExistAsync(userName, AdminUserId);
+        }
+        
+        public BusinessEntites.Admin_GetUser Admin_GetUserOnId(int AdminUserId) {
+            return base.Channel.Admin_GetUserOnId(AdminUserId);
+        }
+        
+        public System.Threading.Tasks.Task<BusinessEntites.Admin_GetUser> Admin_GetUserOnIdAsync(int AdminUserId) {
+            return base.Channel.Admin_GetUserOnIdAsync(AdminUserId);
         }
     }
 }
