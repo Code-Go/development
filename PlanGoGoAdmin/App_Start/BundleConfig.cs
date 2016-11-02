@@ -64,6 +64,10 @@ namespace PlanGoGoAdmin
                         "~/CustomScripts/Controller/controllerManageUser.js"
                         ));
 
+            bundles.Add(new ScriptBundle("~/controllerManageCountry").Include(
+                        "~/CustomScripts/Controller/controllerManageCountry.js"
+                        ));
+
         }
     }
 }

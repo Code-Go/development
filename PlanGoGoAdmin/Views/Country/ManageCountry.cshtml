@@ -1,5 +1,34 @@
 ﻿@{
     Layout = "~/Views/shared/_authenticatedLayout.cshtml";
 }
+@Scripts.Render("~/controllerManageCountry")
 
+<div ng-controller="controllerManageCountry">
 
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>
+                    Country Name
+                </th>
+                <th>
+                    Password
+                </th>
+            </tr>
+        </tbody>
+        <tr ng-repeat="user in manageCountry">
+            <td>
+                <a href="/User/AddUpdateCountry?CountryId={{user.CountryId}}" title="Update Country">
+                    Edit Country
+                </a>
+            </td>
+            <td title="'Country Name'">
+                {{user.CountryName}}
+            </td>
+            <td title="'Country Short Name'">
+                {{user.CountryShortName}}
+            </td>
+        </tr>
+    </table>
+
+</div>

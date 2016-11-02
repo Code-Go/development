@@ -209,6 +209,7 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="CustomScripts\Common\ajax\AjaxCalls.js" />
     <Content Include="CustomScripts\Common\ngTableParameters.js" />
+    <Content Include="CustomScripts\Controller\controllerManageCountry.js" />
     <Content Include="CustomScripts\Controller\controllerManageUser.js" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
@@ -255,6 +256,7 @@
     <Content Include="Content\ng-table.less" />
     <Content Include="Properties\DataSources\BusinessEntites.Admin.AdminUser.datasource" />
     <Content Include="Properties\DataSources\BusinessEntites.Admin_GetUser.datasource" />
+    <Content Include="Properties\DataSources\BusinessEntites.Admin.MasterCountryDTO.datasource" />
     <None Include="scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="scripts\i18n\angular-locale_aa-er.js" />
@@ -1012,10 +1014,27 @@
     <Content Include="scripts\modernizr-2.8.3.js" />
     <Content Include="scripts\ng-table.js" />
     <Content Include="scripts\ng-table.min.js" />
+    <None Include="Service References\AdminCountry\Country.wsdl" />
+    <None Include="Service References\AdminCountry\Country.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdminCountry\Country1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdminCountry\Country2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\AdminUser\User.disco" />
     <None Include="Service References\AdminUser\configuration91.svcinfo" />
     <None Include="Service References\AdminUser\configuration.svcinfo" />
     <None Include="Service References\AdminUser\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AdminCountry\Country.disco" />
+    <None Include="Service References\AdminCountry\configuration91.svcinfo" />
+    <None Include="Service References\AdminCountry\configuration.svcinfo" />
+    <None Include="Service References\AdminCountry\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -1054,11 +1073,19 @@
     <Compile Include="Helper\Principal\CustomPrincipal.cs" />
     <Compile Include="Helper\Principal\CustomPrincipalSerializeModel.cs" />
     <Compile Include="Helper\Principal\ICustomPrincipal.cs" />
+    <Compile Include="Models\Country\ModelCountry.cs" />
     <Compile Include="Models\User\ModelAddUpdateUser.cs" />
     <Compile Include="Models\User\ModelLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Interface\ICountry.cs" />
     <Compile Include="Repository\Interface\IUser.cs" />
+    <Compile Include="Repository\Reference\Country.cs" />
     <Compile Include="Repository\Reference\User.cs" />
+    <Compile Include="Service References\AdminCountry\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\AdminUser\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1093,6 +1120,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AdminCountry\" />
     <WCFMetadataStorage Include="Service References\AdminUser\" />
   </ItemGroup>
   <ItemGroup>

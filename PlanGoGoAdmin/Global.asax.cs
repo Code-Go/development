@@ -38,7 +38,8 @@ namespace PlanGoGoAdmin
         {
             //create unitycontainer          
             IUnityContainer container = new UnityContainer()
-                .RegisterType<PlanGoGoAdmin.Repository.Interface.IUser, PlanGoGoAdmin.Repository.Reference.User>();
+                .RegisterType<PlanGoGoAdmin.Repository.Interface.IUser, PlanGoGoAdmin.Repository.Reference.User>()
+                .RegisterType<PlanGoGoAdmin.Repository.Interface.ICountry,  PlanGoGoAdmin.Repository.Reference.Country>();
             return container;
         }
 
