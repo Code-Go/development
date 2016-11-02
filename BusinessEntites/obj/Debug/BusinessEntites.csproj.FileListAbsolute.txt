@@ -10,6 +10,6 @@ D:\Srinivas\Personal\Projects\Attractions\Source\Development\BusinessEntites\obj
 D:\Srinivas\Personal\Projects\Attractions\Source\Development\BusinessEntites\obj\Debug\BusinessEntites.pdb
 C:\Srinivas\Personal\Projects\Tour\BusinessEntites\bin\Debug\BusinessEntites.dll
 C:\Srinivas\Personal\Projects\Tour\BusinessEntites\bin\Debug\BusinessEntites.pdb
+C:\Srinivas\Personal\Projects\Tour\BusinessEntites\obj\Debug\BusinessEntites.csprojResolveAssemblyReference.cache
 C:\Srinivas\Personal\Projects\Tour\BusinessEntites\obj\Debug\BusinessEntites.dll
 C:\Srinivas\Personal\Projects\Tour\BusinessEntites\obj\Debug\BusinessEntites.pdb
-C:\Srinivas\Personal\Projects\Tour\BusinessEntites\obj\Debug\BusinessEntites.csprojResolveAssemblyReference.cache
