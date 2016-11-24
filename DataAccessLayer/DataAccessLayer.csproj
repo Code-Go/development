@@ -45,12 +45,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\Country.cs" />
+    <Compile Include="Admin\MasterCategory.cs" />
+    <Compile Include="Admin\MasterCity.cs" />
+    <Compile Include="Admin\MasterState.cs" />
     <Compile Include="Admin\User.cs" />
     <Compile Include="BaseDAL.cs" />
+    <Compile Include="Common\Attractions.cs" />
     <Compile Include="GetListValues.cs" />
     <Compile Include="Helper\SqlHelper.cs" />
+    <Compile Include="Interface\IAttractions.cs" />
     <Compile Include="Interface\ICountry.cs" />
     <Compile Include="Interface\IGetListValues.cs" />
+    <Compile Include="Interface\IMasterCategory.cs" />
+    <Compile Include="Interface\IMasterCity.cs" />
+    <Compile Include="Interface\IMasterState.cs" />
     <Compile Include="Interface\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -46,11 +46,11 @@ namespace PlanGoGoAdmin.Repository.Reference
             }
         }
 
-        public void Admin_UpdateCountry(int countryId, string countryName, string countryShortName, string createdBy)
+        public void Admin_UpdateCountry(int countryId, string countryName, string countryShortName, string createdBy, bool isDefault)
         {
             try
             {
-                _client.Admin_UpdateCountry(countryId, countryName, countryShortName, createdBy);
+                _client.Admin_UpdateCountry(countryId, countryName, countryShortName, createdBy, isDefault);
             }
             catch (Exception ex)
             {

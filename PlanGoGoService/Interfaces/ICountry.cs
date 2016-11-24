@@ -11,7 +11,7 @@ namespace PlanGoGoService.Interfaces
     public interface ICountry
     {
         [OperationContract]
-        void Admin_UpdateCountry(int countryId, string countryName, string countryShortName, string createdBy);
+        void Admin_UpdateCountry(int countryId, string countryName, string countryShortName, string createdBy, bool isDefault);
 
         [OperationContract]
         List<MasterCountryDTO> Admin_GetCountry();

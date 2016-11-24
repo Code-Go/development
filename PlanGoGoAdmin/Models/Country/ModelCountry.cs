@@ -20,6 +20,9 @@ namespace PlanGoGoAdmin.Models.Country
         [StringLength(50)]
         [Required(ErrorMessage = "Country short name should not be blank")]
         public string CountryShortName { get; set; }
+
+
+        public bool IsDefault { get; set; }
         public string CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public string ModifiedBy { get; set; }

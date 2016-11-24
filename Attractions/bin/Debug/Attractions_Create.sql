@@ -373,6 +373,7 @@ CREATE TABLE [dbo].[MasterCity] (
     [CityName]      VARCHAR (250) NULL,
     [CityShortName] VARCHAR (50)  NULL,
     [StateId]       INT           NULL,
+    [IsDefault]     BIT           NULL,
     CONSTRAINT [PK_MasterCity] PRIMARY KEY CLUSTERED ([CityId] ASC)
 );
 
@@ -432,6 +433,7 @@ CREATE TABLE [dbo].[MasterState] (
     [StateName]      VARCHAR (250) NULL,
     [CountryId]      INT           NULL,
     [StateShortName] VARCHAR (50)  NULL,
+    [IsDefault]      BIT           NULL,
     CONSTRAINT [PK_MasterState] PRIMARY KEY CLUSTERED ([StateId] ASC)
 );
 
@@ -449,6 +451,7 @@ CREATE TABLE [dbo].[MasterCountry] (
     [CreatedDate]      DATETIME      NULL,
     [ModifiedBy]       VARCHAR (50)  NULL,
     [ModifiedDate]     DATETIME      NULL,
+    [IsDefault]        BIT           NULL,
     CONSTRAINT [PK_MaterCountry] PRIMARY KEY CLUSTERED ([CountryId] ASC)
 );
 
@@ -854,6 +857,334 @@ DECLARE @DefaultVisitTime INT = 2
 	WHERE RN =1 	
 END
 GO
+PRINT N'Creating [dbo].[Admin_MasterStateCheckExists]...';
+
+
+GO
+CREATE PROCEDURE Admin_MasterStateCheckExists 
+(
+	@StateId int
+	,@StateName varchar(250)
+)	
+AS
+BEGIN
+	IF(@StateId = 0)
+	BEGIN
+		SELECT MS.[StateId]
+		  ,MS.[StateName]
+		  ,MS.[CountryId]
+		  ,MS.[StateShortName]
+		  ,MC.CountryName 
+		FROM [dbo].[MasterState] MS
+		JOIN dbo.MasterCountry MC ON MC.CountryId = MS.CountryId 
+		WHERE MS.StateName = @StateName
+		
+	END
+	ELSE
+	BEGIN
+		SELECT MS.[StateId]
+		  ,MS.[StateName]
+		  ,MS.[CountryId]
+		  ,MS.[StateShortName]
+		  ,MC.CountryName 
+		FROM [dbo].[MasterState] MS
+		JOIN dbo.MasterCountry MC ON MC.CountryId = MS.CountryId 
+		WHERE MS.StateId NOT IN (@StateId)
+		AND MS.StateName = @StateName		
+	END
+END
+GO
+PRINT N'Creating [dbo].[Admin_GetCountryOnId]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Admin_GetCountryOnId]
+(
+	@CountryId INT
+)
+AS
+BEGIN
+	
+
+	SELECT [CountryId]
+      ,[CountryName]
+      ,[CountryShortName]
+      ,[CreatedBy]
+      ,[CreatedDate]
+      ,[ModifiedBy]
+      ,[ModifiedDate]
+	  ,[IsDefault]
+	FROM [dbo].[MasterCountry]
+	WHERE CountryId = @CountryId
+
+
+END
+GO
+PRINT N'Creating [dbo].[Admin_CheckCountryExist]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Admin_CheckCountryExist] 
+	@CountryName Varchar(250)
+	,@CountryId INT
+AS
+BEGIN	
+
+	IF(@CountryId = 0)
+	BEGIN	
+
+		SELECT [CountryId]
+		  ,[CountryName]
+		  ,[CountryShortName]
+		  ,[CreatedBy]
+		  ,[CreatedDate]
+		  ,[ModifiedBy]
+		  ,[ModifiedDate]
+		  ,[IsDefault]
+		FROM [dbo].[MasterCountry]
+		WHERE CountryName = @CountryName
+
+	END
+	ELSE
+	BEGIN
+		
+
+		SELECT [CountryId]
+		  ,[CountryName]
+		  ,[CountryShortName]
+		  ,[CreatedBy]
+		  ,[CreatedDate]
+		  ,[ModifiedBy]
+		  ,[ModifiedDate]
+		  ,[IsDefault]
+		FROM [dbo].[MasterCountry]
+		WHERE CountryName = @CountryName
+		AND CountryId NOT IN (@CountryId)
+	END
+END
+GO
+PRINT N'Creating [dbo].[Admin_GetCountry]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Admin_GetCountry] 
+AS
+BEGIN
+	SELECT [CountryId]
+			,[CountryName]
+			,[CountryShortName]
+			,[CreatedBy]
+			,[CreatedDate]
+			,[ModifiedBy]
+			,[ModifiedDate]
+			,[IsDefault]
+	FROM [dbo].[MasterCountry]
+END
+GO
+PRINT N'Creating [dbo].[Admin_UpdateCountry]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Admin_UpdateCountry] 
+(
+	@CountryId INT
+	,@CountryName Varchar(250)
+	,@CountryShortName Varchar(50)	
+	,@CreatedBy Varchar(50)
+	,@IsDefault BIT
+)
+AS
+BEGIN
+	IF(@CountryId = 0)
+	BEGIN		
+		
+		INSERT INTO [dbo].[MasterCountry]
+			   ([CountryId]
+			   ,[CountryName]
+			   ,[CountryShortName]
+			   ,[CreatedBy]
+			   ,[CreatedDate]
+			   ,[IsDefault] 
+			   )
+		 VALUES
+			   ((SELECT ISNULL(Max(CountryId),0)+1 FROM MasterCountry)
+			   ,@CountryName
+			   ,@CountryShortName
+			   ,@CreatedBy
+			   ,GETDATE()
+			   ,@IsDefault 
+			   )
+	END
+	ELSE
+	BEGIN		
+
+		UPDATE [dbo].[MasterCountry]
+		   SET [CountryName] = @CountryName
+			  ,[CountryShortName] = @CountryShortName			  
+			  ,[ModifiedBy] = @CreatedBy
+			  ,[ModifiedDate] = GETDATE()
+			  ,[IsDefault] = @IsDefault 
+		 WHERE [CountryId] = @CountryId
+
+		 IF(@IsDefault = 1)
+		 BEGIN
+			UPDATE [dbo].[MasterCountry]
+			   SET [IsDefault] = 0
+			 WHERE [CountryId] NOT IN (@CountryId)
+		 END
+
+	END
+END
+GO
+PRINT N'Creating [dbo].[Admin_GetUserOnId]...';
+
+
+GO
+CREATE PROCEDURE Admin_GetUserOnId
+(
+	@AdminUserId INT
+)
+AS
+BEGIN
+	
+
+SELECT [AdminUserId]
+      ,[UserName]
+      ,[Password]
+      ,[CredatedDate]
+      ,[CreatedBy]
+      ,[ModifiedDate]
+      ,[ModifiedBy]
+  FROM [dbo].[AdminUser]
+  WHERE AdminUserId = @AdminUserId
+
+
+
+
+END
+GO
+PRINT N'Creating [dbo].[Admin_UpdateUser]...';
+
+
+GO
+CREATE PROCEDURE Admin_UpdateUser 
+	@UserName Varchar(250)
+	,@Password Varchar(250)
+	,@CreatedBy Varchar(250)	
+	,@AdminUserId INT
+AS
+BEGIN
+	IF(@AdminUserId = 0)
+	BEGIN
+		INSERT INTO [dbo].[AdminUser]
+			   ([UserName]
+			   ,[Password]
+			   ,[CredatedDate]
+			   ,[CreatedBy]
+			   )
+		 VALUES
+			   (@UserName
+			   ,@Password
+			   ,getdate()
+			   ,@CreatedBy
+			   )
+	END
+	ELSE
+	BEGIN
+
+		UPDATE [dbo].[AdminUser]
+		SET [UserName] = @UserName
+		  ,[Password] = @Password      
+		  ,[ModifiedDate] = getdate()
+		  ,[ModifiedBy] = @CreatedBy
+		WHERE AdminUserId = @AdminUserId 
+
+	END
+END
+GO
+PRINT N'Creating [dbo].[Admin_CheckUserExist]...';
+
+
+GO
+CREATE PROCEDURE Admin_CheckUserExist 
+	@UserName Varchar(250)
+	,@AdminUserId INT
+AS
+BEGIN	
+
+	IF(@AdminUserId = 0)
+	BEGIN
+		SELECT [AdminUserId]
+		  ,[UserName]
+		  ,[Password]
+		  ,[CredatedDate]
+		  ,[CreatedBy]
+		  ,[ModifiedDate]
+		  ,[ModifiedBy]
+		FROM [dbo].[AdminUser]
+		WHERE UserName = @UserName
+	END
+	ELSE
+	BEGIN
+		SELECT [AdminUserId]
+		  ,[UserName]
+		  ,[Password]
+		  ,[CredatedDate]
+		  ,[CreatedBy]
+		  ,[ModifiedDate]
+		  ,[ModifiedBy]
+		FROM [dbo].[AdminUser]
+		WHERE UserName = @UserName
+		AND AdminUserId NOT IN (@AdminUserId)
+	END
+END
+GO
+PRINT N'Creating [dbo].[Admin_GetUser]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Admin_GetUser] 
+AS
+BEGIN
+	
+
+	SELECT [AdminUserId]
+		  ,[UserName]
+		  ,[Password]
+		  ,[CredatedDate]
+		  ,[CreatedBy]
+		  ,[ModifiedDate]
+		  ,[ModifiedBy]
+	  FROM [dbo].[AdminUser]
+END
+GO
+PRINT N'Creating [dbo].[Admin_CheckUser]...';
+
+
+GO
+CREATE PROCEDURE Admin_CheckUser 
+(
+	@UserName Varchar(250),
+	@Password Varchar(250)
+)
+AS
+BEGIN
+	
+
+	SELECT [AdminUserId]
+		  ,[UserName]
+		  ,[Password]
+		  ,[CredatedDate]
+		  ,[CreatedBy]
+		  ,[ModifiedDate]
+		  ,[ModifiedBy]
+	  FROM [dbo].[AdminUser]
+	  WHERE UserName = @UserName
+	  AND [Password] = @Password
+
+
+END
+GO
 PRINT N'Creating [dbo].[public_FilterAttractions]...';
 
 
@@ -933,10 +1264,12 @@ BEGIN
 
 
 INSERT INTO [dbo].[MasterCountry]
-           ([CountryName]
+           ([CountryId]
+		   ,[CountryName]
            ,[CountryShortName])
      VALUES
-           (@CountryName
+           ((SELECT ISNULL(Max(CountryId),1) FROM MasterCountry)
+		   ,@CountryName
            ,@CountryShortName)
 
 END
@@ -961,277 +1294,620 @@ SELECT [CountryId]
   FROM [dbo].[MasterCountry]
 END
 GO
-PRINT N'Creating [dbo].[Admin_CheckUser]...';
+PRINT N'Creating [dbo].[Admin_MasterStateUpdate]...';
 
 
 GO
-CREATE PROCEDURE Admin_CheckUser 
+CREATE PROCEDURE Admin_MasterStateUpdate 
 (
-	@UserName Varchar(250),
-	@Password Varchar(250)
-)
+	@StateId int
+	,@StateName varchar(250)
+    ,@CountryId int
+    ,@StateShortName varchar(50)
+	,@IsDefault Bit
+)	
 AS
 BEGIN
-	
-
-	SELECT [AdminUserId]
-		  ,[UserName]
-		  ,[Password]
-		  ,[CredatedDate]
-		  ,[CreatedBy]
-		  ,[ModifiedDate]
-		  ,[ModifiedBy]
-	  FROM [dbo].[AdminUser]
-	  WHERE UserName = @UserName
-	  AND [Password] = @Password
-
-
-END
-GO
-PRINT N'Creating [dbo].[Admin_GetUser]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Admin_GetUser] 
-AS
-BEGIN
-	
-
-	SELECT [AdminUserId]
-		  ,[UserName]
-		  ,[Password]
-		  ,[CredatedDate]
-		  ,[CreatedBy]
-		  ,[ModifiedDate]
-		  ,[ModifiedBy]
-	  FROM [dbo].[AdminUser]
-END
-GO
-PRINT N'Creating [dbo].[Admin_CheckUserExist]...';
-
-
-GO
-CREATE PROCEDURE Admin_CheckUserExist 
-	@UserName Varchar(250)
-	,@AdminUserId INT
-AS
-BEGIN	
-
-	IF(@AdminUserId = 0)
-	BEGIN
-		SELECT [AdminUserId]
-		  ,[UserName]
-		  ,[Password]
-		  ,[CredatedDate]
-		  ,[CreatedBy]
-		  ,[ModifiedDate]
-		  ,[ModifiedBy]
-		FROM [dbo].[AdminUser]
-		WHERE UserName = @UserName
-	END
-	ELSE
-	BEGIN
-		SELECT [AdminUserId]
-		  ,[UserName]
-		  ,[Password]
-		  ,[CredatedDate]
-		  ,[CreatedBy]
-		  ,[ModifiedDate]
-		  ,[ModifiedBy]
-		FROM [dbo].[AdminUser]
-		WHERE UserName = @UserName
-		AND AdminUserId NOT IN (@AdminUserId)
-	END
-END
-GO
-PRINT N'Creating [dbo].[Admin_UpdateUser]...';
-
-
-GO
-CREATE PROCEDURE Admin_UpdateUser 
-	@UserName Varchar(250)
-	,@Password Varchar(250)
-	,@CreatedBy Varchar(250)	
-	,@AdminUserId INT
-AS
-BEGIN
-	IF(@AdminUserId = 0)
-	BEGIN
-		INSERT INTO [dbo].[AdminUser]
-			   ([UserName]
-			   ,[Password]
-			   ,[CredatedDate]
-			   ,[CreatedBy]
-			   )
-		 VALUES
-			   (@UserName
-			   ,@Password
-			   ,getdate()
-			   ,@CreatedBy
-			   )
-	END
-	ELSE
-	BEGIN
-
-		UPDATE [dbo].[AdminUser]
-		SET [UserName] = @UserName
-		  ,[Password] = @Password      
-		  ,[ModifiedDate] = getdate()
-		  ,[ModifiedBy] = @CreatedBy
-		WHERE AdminUserId = @AdminUserId 
-
-	END
-END
-GO
-PRINT N'Creating [dbo].[Admin_GetUserOnId]...';
-
-
-GO
-CREATE PROCEDURE Admin_GetUserOnId
-(
-	@AdminUserId INT
-)
-AS
-BEGIN
-	
-
-SELECT [AdminUserId]
-      ,[UserName]
-      ,[Password]
-      ,[CredatedDate]
-      ,[CreatedBy]
-      ,[ModifiedDate]
-      ,[ModifiedBy]
-  FROM [dbo].[AdminUser]
-  WHERE AdminUserId = @AdminUserId
-
-
-
-
-END
-GO
-PRINT N'Creating [dbo].[Admin_UpdateCountry]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Admin_UpdateCountry] 
-(
-	@CountryId INT
-	,@CountryName Varchar(250)
-	,@CountryShortName Varchar(50)	
-	,@CreatedBy Varchar(50)
-	
-)
-AS
-BEGIN
-	IF(@CountryId = 0)
-	BEGIN		
-		
-		INSERT INTO [dbo].[MasterCountry]
-			   ([CountryName]
-			   ,[CountryShortName]
-			   ,[CreatedBy]
-			   ,[CreatedDate]
-			   )
-		 VALUES
-			   (@CountryName
-			   ,@CountryShortName
-			   ,@CreatedBy
-			   ,GETDATE()
-			   )
-	END
-	ELSE
-	BEGIN		
-
-		UPDATE [dbo].[MasterCountry]
-		   SET [CountryName] = @CountryName
-			  ,[CountryShortName] = @CountryShortName			  
-			  ,[ModifiedBy] = @CreatedBy
-			  ,[ModifiedDate] = GETDATE()
-		 WHERE [CountryId] = @CountryId
-	END
-END
-GO
-PRINT N'Creating [dbo].[Admin_GetCountry]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Admin_GetCountry] 
-AS
-BEGIN
-	SELECT [CountryId]
-			,[CountryName]
-			,[CountryShortName]
-			,[CreatedBy]
-			,[CreatedDate]
-			,[ModifiedBy]
-			,[ModifiedDate]
-	FROM [dbo].[MasterCountry]
-END
-GO
-PRINT N'Creating [dbo].[Admin_CheckCountryExist]...';
-
-
-GO
-CREATE PROCEDURE [dbo].[Admin_CheckCountryExist] 
-	@CountryName Varchar(250)
-	,@CountryId INT
-AS
-BEGIN	
-
-	IF(@CountryId = 0)
+	IF((SELECT 1 FROM MasterState WHERE StateId = @StateId) = 1)
 	BEGIN	
 
-		SELECT [CountryId]
-		  ,[CountryName]
-		  ,[CountryShortName]
-		  ,[CreatedBy]
-		  ,[CreatedDate]
-		  ,[ModifiedBy]
-		  ,[ModifiedDate]
-		FROM [dbo].[MasterCountry]
-		WHERE CountryName = @CountryName
+		UPDATE [dbo].[MasterState]
+		   SET [StateName] = @StateName
+			  ,[CountryId] = @CountryId
+			  ,[StateShortName] = @StateShortName
+			  ,[IsDefault] = @IsDefault
+		 WHERE StateId = @StateId
 
+		 
 	END
 	ELSE
 	BEGIN
-		
 
-		SELECT [CountryId]
-		  ,[CountryName]
-		  ,[CountryShortName]
-		  ,[CreatedBy]
-		  ,[CreatedDate]
-		  ,[ModifiedBy]
-		  ,[ModifiedDate]
-		FROM [dbo].[MasterCountry]
-		WHERE CountryName = @CountryName
-		AND CountryId NOT IN (@CountryId)
+		INSERT INTO [dbo].[MasterState]
+			   ([StateId]
+			   ,[StateName]
+			   ,[CountryId]
+			   ,[StateShortName]
+			   ,[IsDefault])
+		 VALUES
+			   ((SELECT ISNULL(MAX(StateId),0) + 1 FROM MasterState)
+			   ,@StateName
+			   ,@CountryId
+			   ,@StateShortName
+			   ,@IsDefault)
+
+	END
+
+	IF(@IsDefault = 1)
+	BEGIN
+		UPDATE [dbo].[MasterState]
+			SET [IsDefault] = 0
+		WHERE StateId NOT IN (@StateId)
+	END
+
+END
+GO
+PRINT N'Creating [dbo].[Admin_MasterStateGetOnCountryId]...';
+
+
+GO
+CREATE PROCEDURE Admin_MasterStateGetOnCountryId
+(
+	@CountryId INT
+)	
+AS
+BEGIN
+	SELECT MS.[StateId]
+      ,MS.[StateName]
+      ,MS.[CountryId]
+      ,MS.[StateShortName]
+	  ,MC.CountryName 
+	  ,MS.IsDefault
+	FROM [dbo].[MasterState] MS
+	JOIN dbo.MasterCountry MC ON MC.CountryId = MS.CountryId 
+END
+GO
+PRINT N'Creating [dbo].[Admin_MasterStateGet]...';
+
+
+GO
+CREATE PROCEDURE Admin_MasterStateGet
+	
+AS
+BEGIN
+	SELECT MS.[StateId]
+      ,MS.[StateName]
+      ,MS.[CountryId]
+      ,MS.[StateShortName]
+	  ,MC.CountryName 
+	  ,MS.IsDefault
+	FROM [dbo].[MasterState] MS
+	JOIN dbo.MasterCountry MC ON MC.CountryId = MS.CountryId 
+END
+GO
+PRINT N'Creating [dbo].[Admin_MasterStateGetOnStateId]...';
+
+
+GO
+CREATE PROCEDURE Admin_MasterStateGetOnStateId 
+(
+	@StateId INT
+)	
+AS
+BEGIN
+	SELECT MS.[StateId]
+      ,MS.[StateName]
+      ,MS.[CountryId]
+      ,MS.[StateShortName]
+	  ,MC.CountryName 
+	  ,MS.IsDefault
+	FROM [dbo].[MasterState] MS
+	JOIN dbo.MasterCountry MC ON MC.CountryId = MS.CountryId 
+	WHERE MS.StateId = @StateId
+END
+GO
+PRINT N'Creating [dbo].[Admin_MasterCityCheckExists]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Admin_MasterCityCheckExists] 
+(
+	@CityId int
+	,@CityName varchar(250)
+)	
+AS
+BEGIN
+	IF(@CityId = 0)
+	BEGIN
+		SELECT MC.[StateId]
+		  ,MC.[CityName]
+		  ,MS.[CountryId]
+		  ,MC.[CityShortName]		  
+		FROM [dbo].[MasterCity] MC
+		JOIN dbo.MasterState MS ON MS.StateId = MC.StateId
+		WHERE MC.CityName = @CityName
+		
+	END
+	ELSE
+	BEGIN
+		SELECT MC.[StateId]
+		  ,MC.[CityName]
+		  ,MS.[CountryId]
+		  ,MC.[CityShortName]		  
+		FROM [dbo].[MasterCity] MC
+		JOIN dbo.MasterState MS ON MS.StateId = MC.StateId
+		WHERE MC.CityId NOT IN (@CityId)
+		AND MC.CityName = @CityName		
 	END
 END
 GO
-PRINT N'Creating [dbo].[Admin_GetCountryOnId]...';
+PRINT N'Creating [dbo].[Admin_MasterCityGet]...';
 
 
 GO
-CREATE PROCEDURE [dbo].[Admin_GetCountryOnId]
-(
-	@CountryId INT
-)
+CREATE PROCEDURE [dbo].[Admin_MasterCityGet]
+	
 AS
 BEGIN
+	SELECT 
+		MC.CityId
+	   ,MC.[StateId]
+      ,MC.[CityName]
+      ,MS.[CountryId]
+      ,MC.[CityShortName]	  
+	  ,MC.IsDefault
+	FROM [dbo].[MasterCity] MC
+	JOIN dbo.MasterState MS ON MS.StateId = MC.StateId
+	JOIN dob.MasterCountry MAC ON MAC.CountryId = MS.CountryId
+	WHERE MAC.IsDefault = 1
+	AND MS.IsDefault = 1
+END
+GO
+PRINT N'Creating [dbo].[Admin_MasterCityUpdate]...';
+
+
+GO
+Create PROCEDURE [dbo].[Admin_MasterCityUpdate] 
+(
+	@CityId int
+	,@CityName varchar(250)
+    ,@StateId int
+    ,@CityShortName varchar(50)
+	,@IsDefault Bit
+)	
+AS
+BEGIN
+	IF((SELECT 1 FROM MasterCity WHERE CityId = @CityId) = 1)
+	BEGIN	
+
+		UPDATE [dbo].[MasterCity]
+		   SET [CityName] = @CityName
+			  ,[StateId] = @StateId
+			  ,[CityShortName] = @CityShortName
+			  ,[IsDefault] = @IsDefault
+		 WHERE StateId = @StateId
+
+		 
+	END
+	ELSE
+	BEGIN
+
+		INSERT INTO [dbo].[MasterCity]
+			   ([CityId]
+			   ,[CityName]
+			   ,[StateId]
+			   ,[CityShortName]
+			   ,[IsDefault])
+		 VALUES
+			   ((SELECT ISNULL(MAX(CityId),0) + 1 FROM MasterCity)
+			   ,@CityName
+			   ,@StateId
+			   ,@CityShortName
+			   ,@IsDefault)
+
+	END
+
+	IF(@IsDefault = 1)
+	BEGIN
+		UPDATE [dbo].[MasterState]
+			SET [IsDefault] = 0
+		WHERE StateId NOT IN (@StateId)
+	END
+
+END
+GO
+PRINT N'Creating [dbo].[Admin_MasterCityGetOnStateId]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Admin_MasterCityGetOnStateId]
+(
+	@StateId INT
+)	
+AS
+BEGIN
+	SELECT 
+		MC.CityId
+	   ,MC.[StateId]
+      ,MC.[CityName]
+      ,MS.[CountryId]
+      ,MC.[CityShortName]	  
+	  ,MC.IsDefault
+	FROM [dbo].[MasterCity] MC
+	JOIN dbo.MasterState MS ON MS.StateId = MC.StateId
+	JOIN dbo.MasterCountry MAC ON MAC.CountryId = MS.CountryId
+	WHERE MS.StateId = @StateId
+END
+GO
+PRINT N'Creating [dbo].[Admin_MasterCityGetOnCityId]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Admin_MasterCityGetOnCityId] 
+(
+	@CityId INT
+)	
+AS
+BEGIN
+	SELECT 
+		MC.CityId
+	   ,MC.[StateId]
+      ,MC.[CityName]
+      ,MS.[CountryId]
+      ,MC.[CityShortName]	  
+	  ,MC.IsDefault
+	FROM [dbo].[MasterCity] MC
+	JOIN dbo.MasterState MS ON MS.StateId = MC.StateId
+	JOIN dbo.MasterCountry MAC ON MAC.CountryId = MS.CountryId
+	WHERE MC.CityId = @CityId
+END
+GO
+PRINT N'Creating [dbo].[Admin_MasterCategoryUpdate]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Admin_MasterCategoryUpdate] 
+(
+	@CategoryId int
+	,@CategoryName varchar(250)    
+)	
+AS
+BEGIN
+	IF((SELECT 1 FROM MasterCity WHERE CityId = @CategoryId) = 1)
+	BEGIN	
+
+		UPDATE [dbo].[MasterCategory]
+		   SET CategoryName = @CategoryName
+		 WHERE CategoryId = @CategoryId
+
+		 
+	END
+	ELSE
+	BEGIN
+
+		INSERT INTO [dbo].[MasterCategory]
+			   (CategoryId
+			   ,CategoryName
+			   )
+		 VALUES
+			   ((SELECT ISNULL(MAX(CategoryId),0) + 1 FROM MasterCategory)
+			   ,@CategoryName
+			   )
+
+	END
+
 	
 
-	SELECT [CountryId]
-      ,[CountryName]
-      ,[CountryShortName]
-      ,[CreatedBy]
-      ,[CreatedDate]
-      ,[ModifiedBy]
-      ,[ModifiedDate]
-	FROM [dbo].[MasterCountry]
-	WHERE CountryId = @CountryId
+END
+GO
+PRINT N'Creating [dbo].[Admin_MasterCategoryOnCategoryId]...';
 
+
+GO
+CREATE PROCEDURE [dbo].[Admin_MasterCategoryOnCategoryId]
+(
+	@CategoryId int
+)	
+AS
+BEGIN
+	SELECT 
+		CategoryId
+		,CategoryName
+	FROM [dbo].[MasterCategory] MC	
+	WHERE MC.CategoryId = @CategoryId
+END
+GO
+PRINT N'Creating [dbo].[Admin_MasterCategoryGet]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Admin_MasterCategoryGet]
+	
+AS
+BEGIN
+	SELECT 
+		CategoryId
+		,CategoryName
+	FROM [dbo].[MasterCategory] MC	
+END
+GO
+PRINT N'Creating [dbo].[Admin_MasterCategoryCheckExists]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[Admin_MasterCategoryCheckExists] 
+(
+	@CategoryId int
+	,@CategoryName varchar(250)   
+)	
+AS
+BEGIN
+	IF(@CategoryId = 0)
+	BEGIN
+		SELECT MC.CategoryId
+		  ,MC.CategoryName		  
+		FROM [dbo].[MasterCategory] MC		
+		WHERE MC.CategoryName = @CategoryName
+		
+	END
+	ELSE
+	BEGIN
+		SELECT MC.CategoryId
+		  ,MC.CategoryName		  	  
+		FROM [dbo].[MasterCategory] MC		
+		WHERE MC.CategoryId NOT IN (@CategoryId)
+		AND MC.CategoryName = @CategoryName		
+	END
+END
+GO
+PRINT N'Creating [dbo].[AttractionsCheckExists]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[AttractionsCheckExists] 
+(
+	@AttractionsId INT
+	,@CityId int
+	,@AttractionName varchar(250)
+)	
+AS
+BEGIN
+	IF(@CityId = 0)
+	BEGIN
+		SELECT [AttractionsId]
+			  ,[AttractionName]
+			  ,[AddressOne]
+			  ,[AddressTwo]
+			  ,[CityId]
+			  ,[CategoryId]
+			  ,[Longitude]
+			  ,[Latitude]
+			  ,[PlaceId]
+			  ,[RankId]
+			  ,[CreatedDate]
+			  ,[CreatedBy]
+			  ,[ModifiedDate]
+			  ,[ModifiedBy]
+			  ,[GoogleSearchText]
+			  ,[GoogleWebSite]
+			  ,[GoogleICon]
+			  ,[GoogleInternational_phone_number]
+			  ,[Googleadr_address]
+			  ,[GoogleName]
+			  ,[GoogleRating]
+			  ,[GoogleUser_ratings_total]
+		  FROM [dbo].[Attractions]		
+		WHERE AttractionName = @AttractionName
+		
+	END
+	ELSE
+	BEGIN
+		SELECT [AttractionsId]
+			  ,[AttractionName]
+			  ,[AddressOne]
+			  ,[AddressTwo]
+			  ,[CityId]
+			  ,[CategoryId]
+			  ,[Longitude]
+			  ,[Latitude]
+			  ,[PlaceId]
+			  ,[RankId]
+			  ,[CreatedDate]
+			  ,[CreatedBy]
+			  ,[ModifiedDate]
+			  ,[ModifiedBy]
+			  ,[GoogleSearchText]
+			  ,[GoogleWebSite]
+			  ,[GoogleICon]
+			  ,[GoogleInternational_phone_number]
+			  ,[Googleadr_address]
+			  ,[GoogleName]
+			  ,[GoogleRating]
+			  ,[GoogleUser_ratings_total]
+		  FROM [dbo].[Attractions]		
+		WHERE AttractionName = @AttractionName
+		AND AttractionsId NOT IN (@AttractionsId)		
+	END
+END
+GO
+PRINT N'Creating [dbo].[AttractionsOnCityId]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[AttractionsOnCityId] 
+(
+	@CityId INT
+)	
+AS
+BEGIN	
+
+	SELECT [AttractionsId]
+		  ,[AttractionName]
+		  ,[AddressOne]
+		  ,[AddressTwo]
+		  ,[CityId]
+		  ,[CategoryId]
+		  ,[Longitude]
+		  ,[Latitude]
+		  ,[PlaceId]
+		  ,[RankId]
+		  ,[CreatedDate]
+		  ,[CreatedBy]
+		  ,[ModifiedDate]
+		  ,[ModifiedBy]
+		  ,[GoogleSearchText]
+		  ,[GoogleWebSite]
+		  ,[GoogleICon]
+		  ,[GoogleInternational_phone_number]
+		  ,[Googleadr_address]
+		  ,[GoogleName]
+		  ,[GoogleRating]
+		  ,[GoogleUser_ratings_total]
+	  FROM [dbo].[Attractions]
+		WHERE CityId = @CityId
+END
+GO
+PRINT N'Creating [dbo].[AttractionsOnAttractionsId]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[AttractionsOnAttractionsId] 
+(
+	@AttractionsId INT
+)	
+AS
+BEGIN	
+
+	SELECT [AttractionsId]
+		  ,[AttractionName]
+		  ,[AddressOne]
+		  ,[AddressTwo]
+		  ,[CityId]
+		  ,[CategoryId]
+		  ,[Longitude]
+		  ,[Latitude]
+		  ,[PlaceId]
+		  ,[RankId]
+		  ,[CreatedDate]
+		  ,[CreatedBy]
+		  ,[ModifiedDate]
+		  ,[ModifiedBy]
+		  ,[GoogleSearchText]
+		  ,[GoogleWebSite]
+		  ,[GoogleICon]
+		  ,[GoogleInternational_phone_number]
+		  ,[Googleadr_address]
+		  ,[GoogleName]
+		  ,[GoogleRating]
+		  ,[GoogleUser_ratings_total]
+	  FROM [dbo].[Attractions]
+		WHERE AttractionsId = @AttractionsId
+END
+GO
+PRINT N'Creating [dbo].[AttractionsUpdate]...';
+
+
+GO
+Create PROCEDURE [dbo].[AttractionsUpdate] 
+(
+	@AttractionsId INT
+	,@AttractionName varchar(500)
+	,@AddressOne varchar(500)
+	,@AddressTwo varchar(500)
+	,@CityId int
+	,@CategoryId int
+	,@Longitude varchar(250)
+	,@Latitude varchar(250)
+	,@PlaceId varchar(250)
+	,@RankId int
+	,@CreatedBy varchar(250)	
+	,@GoogleSearchText varchar(500)
+	,@GoogleWebSite varchar(500)
+	,@GoogleICon varchar(500)
+	,@GoogleInternational_phone_number varchar(500)
+	,@Googleadr_address varchar(2000)
+	,@GoogleName varchar(500)
+	,@GoogleRating varchar(50)
+	,@GoogleUser_ratings_total int
+)	
+AS
+BEGIN
+	IF((SELECT 1 FROM Attractions WHERE AttractionsId = @AttractionsId) = 1)
+	BEGIN			
+
+		UPDATE [dbo].[Attractions]
+		   SET [AttractionName] = @AttractionName
+			  ,[AddressOne] = @AddressOne
+			  ,[AddressTwo] = @AddressTwo
+			  ,[CityId] = @CityId
+			  ,[CategoryId] = @CategoryId
+			  ,[Longitude] = @Longitude
+			  ,[Latitude] = @Latitude
+			  ,[PlaceId] = @PlaceId
+			  ,[RankId] = @RankId			  
+			  ,[ModifiedDate] = getdate()
+			  ,[ModifiedBy] = @CreatedBy
+			  ,[GoogleSearchText] = @GoogleSearchText
+			  ,[GoogleWebSite] = @GoogleWebSite
+			  ,[GoogleICon] = @GoogleICon
+			  ,[GoogleInternational_phone_number] = @GoogleInternational_phone_number
+			  ,[Googleadr_address] = @Googleadr_address
+			  ,[GoogleName] = @GoogleName
+			  ,[GoogleRating] = @GoogleRating
+			  ,[GoogleUser_ratings_total] = @GoogleUser_ratings_total
+		 WHERE AttractionsId = @AttractionsId
+
+
+
+
+		 
+	END
+	ELSE
+	BEGIN
+
+		
+
+		INSERT INTO [dbo].[Attractions]
+				   ([AttractionName]
+				   ,[AddressOne]
+				   ,[AddressTwo]
+				   ,[CityId]
+				   ,[CategoryId]
+				   ,[Longitude]
+				   ,[Latitude]
+				   ,[PlaceId]
+				   ,[RankId]
+				   ,[CreatedDate]
+				   ,[CreatedBy]				   
+				   ,[GoogleSearchText]
+				   ,[GoogleWebSite]
+				   ,[GoogleICon]
+				   ,[GoogleInternational_phone_number]
+				   ,[Googleadr_address]
+				   ,[GoogleName]
+				   ,[GoogleRating]
+				   ,[GoogleUser_ratings_total])
+			 VALUES
+				   (@AttractionName
+				   ,@AddressOne
+				   ,@AddressTwo
+				   ,@CityId
+				   ,@CategoryId
+				   ,@Longitude
+				   ,@Latitude
+				   ,@PlaceId
+				   ,@RankId
+				   ,getdate()
+				   ,@CreatedBy				   
+				   ,@GoogleSearchText
+				   ,@GoogleWebSite
+				   ,@GoogleICon
+				   ,@GoogleInternational_phone_number
+				   ,@Googleadr_address 
+				   ,@GoogleName
+				   ,@GoogleRating
+				   ,@GoogleUser_ratings_total)
+	END	
 
 END
 GO

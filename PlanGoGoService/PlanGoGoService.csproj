@@ -109,7 +109,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Attractions.svc" />
     <Content Include="Admin\Country.svc" />
+    <Content Include="Admin\MasterCategory.svc" />
+    <Content Include="Admin\MasterState.svc" />
+    <Content Include="Admin\MasterCity.svc" />
     <Content Include="Admin\User.svc" />
     <Content Include="GetListValues.svc" />
     <Content Include="Global.asax" />
@@ -118,10 +122,26 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Attractions.svc.cs">
+      <DependentUpon>Attractions.svc</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Country.svc.cs">
       <DependentUpon>Country.svc</DependentUpon>
     </Compile>
+    <Compile Include="Admin\MasterCategory.svc.cs">
+      <DependentUpon>MasterCategory.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\MasterState.svc.cs">
+      <DependentUpon>MasterState.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\MasterCity.svc.cs">
+      <DependentUpon>MasterCity.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IAttractions.cs" />
     <Compile Include="Interfaces\ICountry.cs" />
+    <Compile Include="Interfaces\IMasterCategory.cs" />
+    <Compile Include="Interfaces\IMasterCity.cs" />
+    <Compile Include="Interfaces\IMasterState.cs" />
     <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="Admin\User.svc.cs">
       <DependentUpon>User.svc</DependentUpon>

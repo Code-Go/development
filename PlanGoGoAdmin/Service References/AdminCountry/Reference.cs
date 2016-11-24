@@ -16,10 +16,10 @@ namespace PlanGoGoAdmin.AdminCountry {
     public interface ICountry {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICountry/Admin_UpdateCountry", ReplyAction="http://tempuri.org/ICountry/Admin_UpdateCountryResponse")]
-        void Admin_UpdateCountry(int countryId, string countryName, string countryShortName, string createdBy);
+        void Admin_UpdateCountry(int countryId, string countryName, string countryShortName, string createdBy, bool isDefault);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICountry/Admin_UpdateCountry", ReplyAction="http://tempuri.org/ICountry/Admin_UpdateCountryResponse")]
-        System.Threading.Tasks.Task Admin_UpdateCountryAsync(int countryId, string countryName, string countryShortName, string createdBy);
+        System.Threading.Tasks.Task Admin_UpdateCountryAsync(int countryId, string countryName, string countryShortName, string createdBy, bool isDefault);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICountry/Admin_GetCountry", ReplyAction="http://tempuri.org/ICountry/Admin_GetCountryResponse")]
         System.Collections.Generic.List<BusinessEntites.Admin.MasterCountryDTO> Admin_GetCountry();
@@ -67,12 +67,12 @@ namespace PlanGoGoAdmin.AdminCountry {
                 base(binding, remoteAddress) {
         }
         
-        public void Admin_UpdateCountry(int countryId, string countryName, string countryShortName, string createdBy) {
-            base.Channel.Admin_UpdateCountry(countryId, countryName, countryShortName, createdBy);
+        public void Admin_UpdateCountry(int countryId, string countryName, string countryShortName, string createdBy, bool isDefault) {
+            base.Channel.Admin_UpdateCountry(countryId, countryName, countryShortName, createdBy, isDefault);
         }
         
-        public System.Threading.Tasks.Task Admin_UpdateCountryAsync(int countryId, string countryName, string countryShortName, string createdBy) {
-            return base.Channel.Admin_UpdateCountryAsync(countryId, countryName, countryShortName, createdBy);
+        public System.Threading.Tasks.Task Admin_UpdateCountryAsync(int countryId, string countryName, string countryShortName, string createdBy, bool isDefault) {
+            return base.Channel.Admin_UpdateCountryAsync(countryId, countryName, countryShortName, createdBy, isDefault);
         }
         
         public System.Collections.Generic.List<BusinessEntites.Admin.MasterCountryDTO> Admin_GetCountry() {

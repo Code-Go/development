@@ -12,14 +12,19 @@
                     Country Name
                 </th>
                 <th>
-                    Password
+                    Shoare Name
                 </th>
             </tr>
         </tbody>
         <tr ng-repeat="user in manageCountry">
             <td>
-                <a href="/User/AddUpdateCountry?CountryId={{user.CountryId}}" title="Update Country">
+                <a href="/Country/AddCountry?CountryId={{user.CountryId}}" title="Update Country">
                     Edit Country
+                </a>
+            </td>
+            <td>
+                <a href="/MasterState/ManageState?CountryId={{user.CountryId}}" title="State List">
+                    State List
                 </a>
             </td>
             <td title="'Country Name'">
@@ -27,6 +32,9 @@
             </td>
             <td title="'Country Short Name'">
                 {{user.CountryShortName}}
+            </td>
+            <td title="'Is Default'">
+                {{user.IsDefault}}
             </td>
         </tr>
     </table>

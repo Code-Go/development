@@ -13,10 +13,12 @@ BEGIN
 
 
 INSERT INTO [dbo].[MasterCountry]
-           ([CountryName]
+           ([CountryId]
+		   ,[CountryName]
            ,[CountryShortName])
      VALUES
-           (@CountryName
+           ((SELECT ISNULL(Max(CountryId),1) FROM MasterCountry)
+		   ,@CountryName
            ,@CountryShortName)
 
 END

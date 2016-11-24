@@ -11,11 +11,11 @@ namespace BusinessAccessLayer.Admin
 {
     public class Country : BaseBusinessClass, ICountry, IDisposable
     {
-        public void Admin_UpdateCountry(int countryId, string countryName, string countryShortName, string createdBy)
+        public void Admin_UpdateCountry(int countryId, string countryName, string countryShortName, string createdBy, bool isDefault)
         {
             try
             {
-                _dataAccessCountry.Admin_UpdateCountry(countryId, countryName, countryShortName, createdBy);
+                _dataAccessCountry.Admin_UpdateCountry(countryId, countryName, countryShortName, createdBy, isDefault);
             }
             catch (Exception ex)
             {

@@ -15,5 +15,7 @@ namespace BusinessEntites.Admin
         public DateTime CreatedDate { get; set; }
         public string ModifiedBy { get; set; }
         public DateTime ModifiedDate { get; set; }
+        
+        public bool IsDefault { get; set; }
     }
 }

@@ -15,6 +15,10 @@ namespace BusinessAccessLayer.Common
         public DataAccessLayer.IGetListValues _dataAccess;
         public DataAccessLayer.IUser _dataAccessAdminUser;
         public DataAccessLayer.Interface.ICountry _dataAccessCountry;
+        public DataAccessLayer.Interface.IMasterState _dataAccessMasterState;
+        public DataAccessLayer.Interface.IMasterCity _dataAccessMasterCity;
+        public DataAccessLayer.Interface.IMasterCategory _dataAccessMasterCategory;
+        public DataAccessLayer.Interface.IAttractions _dataAccessAttractions;
 
 
         public BaseBusinessClass()
@@ -22,6 +26,12 @@ namespace BusinessAccessLayer.Common
             _dataAccess = new DataAccessLayer.GetListValues();
             _dataAccessAdminUser = new DataAccessLayer.User();
             _dataAccessCountry = new DataAccessLayer.Admin.Country();
+            _dataAccessMasterState = new DataAccessLayer.Admin.MasterState();
+            _dataAccessMasterCity = new DataAccessLayer.Admin.MasterCity();
+            _dataAccessMasterCategory = new DataAccessLayer.Admin.MasterCategory();
+            _dataAccessAttractions = new DataAccessLayer.Common.Attractions();
+
+
             //IUnityContainer container = GetUnityContainer();
             //DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

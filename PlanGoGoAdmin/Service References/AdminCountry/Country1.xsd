@@ -8,6 +8,7 @@
         <xs:element minOccurs="0" name="countryName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="countryShortName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="createdBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isDefault" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

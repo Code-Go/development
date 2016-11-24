@@ -57,7 +57,8 @@ namespace PlanGoGoAdmin
 
             bundles.Add(new ScriptBundle("~/customscript").Include(
                         "~/CustomScripts/Common/ajax/AjaxCalls.js",
-                        "~/CustomScripts/Common/ngTableParameters.js"
+                        "~/CustomScripts/Common/ngTableParameters.js",
+                        "~/CustomScripts/Helper/UseFullMethods.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/controllerManageUser").Include(
@@ -66,6 +67,26 @@ namespace PlanGoGoAdmin
 
             bundles.Add(new ScriptBundle("~/controllerManageCountry").Include(
                         "~/CustomScripts/Controller/controllerManageCountry.js"
+                        ));
+
+            bundles.Add(new ScriptBundle("~/controllerManageStates").Include(
+                        "~/CustomScripts/Controller/controllerManageState.js"
+                        , "~/CustomScripts/Common/Internal/UpdateState.js"
+                        ));
+
+            bundles.Add(new ScriptBundle("~/controllerManageCity").Include(
+                        "~/CustomScripts/Controller/controllerManageCity.js"
+                        , "~/CustomScripts/Common/Internal/UpdateCity.js"
+                        ));
+
+            bundles.Add(new ScriptBundle("~/controllerManageCategory").Include(
+                        "~/CustomScripts/Controller/controllerMasterCategory.js"
+                        , "~/CustomScripts/Common/Internal/UpdateCategory.js"
+                        ));
+
+            bundles.Add(new ScriptBundle("~/controllerAttractions").Include(
+                        "~/CustomScripts/Controller/controllerAttractions.js"
+                        , "~/CustomScripts/Common/Internal/UpdateAttractions.js"
                         ));
 
         }

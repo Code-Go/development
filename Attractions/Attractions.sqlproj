@@ -105,5 +105,23 @@
     <Build Include="dbo\Stored Procedures\Admin_GetCountry.sql" />
     <Build Include="dbo\Stored Procedures\Admin_CheckCountryExist.sql" />
     <Build Include="dbo\Stored Procedures\Admin_GetCountryOnId.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_MasterStateCheckExists.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_MasterStateGetOnStateId.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_MasterStateUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_MasterStateGetOnCountryId.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_MasterStateGet.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_MasterCityCheckExists.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_MasterCityGet.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_MasterCityGetOnStateId.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_MasterCityGetOnCityId.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_MasterCityUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_MasterCategoryUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_MasterCategoryOnCategoryId.sql" />
+    <Build Include="dbo\Stored Procedures\MasterCategoryGet.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_MasterCategoryCheckExists.sql" />
+    <Build Include="dbo\Stored Procedures\AttractionsCheckExists.sql" />
+    <Build Include="dbo\Stored Procedures\AttractionsOnCityId.sql" />
+    <Build Include="dbo\Stored Procedures\AttractionsOnAttractionsId.sql" />
+    <Build Include="dbo\Stored Procedures\AttractionsUpdate.sql" />
   </ItemGroup>
 </Project>

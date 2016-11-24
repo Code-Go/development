@@ -14,11 +14,11 @@ namespace PlanGoGoService.Admin
     // NOTE: In order to launch WCF Test Client for testing this service, please select Country.svc or Country.svc.cs at the Solution Explorer and start debugging.
     public class Country : BaseReference, ICountry
     {
-        public void Admin_UpdateCountry(int countryId, string countryName, string countryShortName, string createdBy)
+        public void Admin_UpdateCountry(int countryId, string countryName, string countryShortName, string createdBy, bool isDefault)
         {
             try
             {
-                _businessCountry.Admin_UpdateCountry(countryId, countryName, countryShortName, createdBy);
+                _businessCountry.Admin_UpdateCountry(countryId, countryName, countryShortName, createdBy, isDefault);
             }
             catch (Exception ex)
             {

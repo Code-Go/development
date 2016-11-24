@@ -88,13 +88,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Attractions.cs" />
     <Compile Include="Admin\Country.cs" />
+    <Compile Include="Admin\MasterCategory.cs" />
+    <Compile Include="Admin\MasterCity.cs" />
+    <Compile Include="Admin\MasterState.cs" />
     <Compile Include="Admin\User.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Common\BaseBusinessClass.cs" />
     <Compile Include="GetListValues.cs" />
+    <Compile Include="Interfaces\IAttractions.cs" />
     <Compile Include="Interfaces\ICountry.cs" />
     <Compile Include="Interfaces\IGetListValues.cs" />
+    <Compile Include="Interfaces\IMasterCategory.cs" />
+    <Compile Include="Interfaces\IMasterCity.cs" />
+    <Compile Include="Interfaces\IMasterState.cs" />
     <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

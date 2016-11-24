@@ -9,7 +9,7 @@ namespace BusinessAccessLayer.Interfaces
 {
     public interface ICountry
     {
-        void Admin_UpdateCountry(int countryId, string countryName, string countryShortName, string createdBy);
+        void Admin_UpdateCountry(int countryId, string countryName, string countryShortName, string createdBy, bool isDefault);
 
         List<MasterCountryDTO> Admin_GetCountry();
 

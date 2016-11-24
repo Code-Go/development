@@ -66,7 +66,7 @@ namespace PlanGoGoAdmin.Controllers
             }
             else
             {
-                _ICountry.Admin_UpdateCountry(model.CountryId, model.CountryName, model.CountryShortName, CurrentUser.UserName);
+                _ICountry.Admin_UpdateCountry(model.CountryId, model.CountryName, model.CountryShortName, CurrentUser.UserName,model.IsDefault);
                 Response.Redirect("/Country/ManageCountry");
             }
             return View(model);

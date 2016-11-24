@@ -208,9 +208,18 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="CustomScripts\Common\ajax\AjaxCalls.js" />
+    <Content Include="CustomScripts\Common\Internal\UpdateAttractions.js" />
+    <Content Include="CustomScripts\Common\Internal\UpdateCity.js" />
+    <Content Include="CustomScripts\Common\Internal\UpdateMasterCategory.js" />
+    <Content Include="CustomScripts\Common\Internal\UpdateState.js" />
     <Content Include="CustomScripts\Common\ngTableParameters.js" />
+    <Content Include="CustomScripts\Controller\controllerAttractions.js" />
+    <Content Include="CustomScripts\Controller\controllerManageCity.js" />
     <Content Include="CustomScripts\Controller\controllerManageCountry.js" />
+    <Content Include="CustomScripts\Controller\controllerManageState.js" />
     <Content Include="CustomScripts\Controller\controllerManageUser.js" />
+    <Content Include="CustomScripts\Controller\controllerMasterCategory.js" />
+    <Content Include="CustomScripts\Helper\UseFullMethods.js" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
@@ -257,6 +266,10 @@
     <Content Include="Properties\DataSources\BusinessEntites.Admin.AdminUser.datasource" />
     <Content Include="Properties\DataSources\BusinessEntites.Admin_GetUser.datasource" />
     <Content Include="Properties\DataSources\BusinessEntites.Admin.MasterCountryDTO.datasource" />
+    <Content Include="Properties\DataSources\BusinessEntites.Admin.MasterStateDTO.datasource" />
+    <Content Include="Properties\DataSources\BusinessEntites.Admin.MasterCityDTO.datasource" />
+    <Content Include="Properties\DataSources\BusinessEntites.Admin.MasterCategoryDTO.datasource" />
+    <Content Include="Properties\DataSources\BusinessEntites.Common.AttractionsDTO.datasource" />
     <None Include="scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="scripts\i18n\angular-locale_aa-er.js" />
@@ -1038,6 +1051,64 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\Attractions\Attractions.wsdl" />
+    <None Include="Service References\Attractions\Attractions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Attractions\Attractions1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Attractions\Attractions2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MasterCategory\MasterCategory.wsdl" />
+    <None Include="Service References\MasterCategory\MasterCategory.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MasterCategory\MasterCategory1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MasterCategory\MasterCategory2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MasterCity\MasterCity.wsdl" />
+    <None Include="Service References\MasterCity\MasterCity.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MasterCity\MasterCity1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MasterCity\MasterCity2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MasterState\MasterState.disco" />
+    <None Include="Service References\MasterState\configuration91.svcinfo" />
+    <None Include="Service References\MasterState\configuration.svcinfo" />
+    <None Include="Service References\MasterState\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MasterCity\MasterCity.disco" />
+    <None Include="Service References\MasterCity\configuration91.svcinfo" />
+    <None Include="Service References\MasterCity\configuration.svcinfo" />
+    <None Include="Service References\MasterCity\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MasterCategory\MasterCategory.disco" />
+    <None Include="Service References\MasterCategory\configuration91.svcinfo" />
+    <None Include="Service References\MasterCategory\configuration.svcinfo" />
+    <None Include="Service References\MasterCategory\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\Attractions\Attractions.disco" />
+    <None Include="Service References\Attractions\configuration91.svcinfo" />
+    <None Include="Service References\Attractions\configuration.svcinfo" />
+    <None Include="Service References\Attractions\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1064,7 +1135,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Controllers\AttractionsController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\MasterCategoryController.cs" />
+    <Compile Include="Controllers\MasterCityController.cs" />
+    <Compile Include="Controllers\MasterStateController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1073,13 +1148,25 @@
     <Compile Include="Helper\Principal\CustomPrincipal.cs" />
     <Compile Include="Helper\Principal\CustomPrincipalSerializeModel.cs" />
     <Compile Include="Helper\Principal\ICustomPrincipal.cs" />
+    <Compile Include="Models\Attractions\ModelAttractions.cs" />
     <Compile Include="Models\Country\ModelCountry.cs" />
+    <Compile Include="Models\MasterCategory\ModelMasterCategory.cs" />
+    <Compile Include="Models\MasterCity\ModelMasterCity.cs" />
+    <Compile Include="Models\MasterState\ModelMasterState.cs" />
     <Compile Include="Models\User\ModelAddUpdateUser.cs" />
     <Compile Include="Models\User\ModelLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Interface\IAttractions.cs" />
     <Compile Include="Repository\Interface\ICountry.cs" />
+    <Compile Include="Repository\Interface\IMasterCategory.cs" />
+    <Compile Include="Repository\Interface\IMasterCity.cs" />
+    <Compile Include="Repository\Interface\IMasterState.cs" />
     <Compile Include="Repository\Interface\IUser.cs" />
+    <Compile Include="Repository\Reference\Attractions.cs" />
     <Compile Include="Repository\Reference\Country.cs" />
+    <Compile Include="Repository\Reference\MasterCategory.cs" />
+    <Compile Include="Repository\Reference\MasterCity.cs" />
+    <Compile Include="Repository\Reference\MasterState.cs" />
     <Compile Include="Repository\Reference\User.cs" />
     <Compile Include="Service References\AdminCountry\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -1087,6 +1174,26 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\AdminUser\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Attractions\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MasterCategory\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MasterCity\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MasterState\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -1106,6 +1213,24 @@
     </None>
     <Content Include="Views\Country\AddCountry.cshtml" />
     <Content Include="Views\Country\ManageCountry.cshtml" />
+    <None Include="Service References\MasterState\MasterState.wsdl" />
+    <None Include="Service References\MasterState\MasterState.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MasterState\MasterState1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MasterState\MasterState2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\MasterState\ManageState.cshtml" />
+    <Content Include="Views\MasterState\UpdateState.cshtml" />
+    <Content Include="Views\MasterCity\ManageCity.cshtml" />
+    <Content Include="Views\MasterCity\UpdateCity.cshtml" />
+    <Content Include="Views\MasterCategory\ManageMasterCategory.cshtml" />
+    <Content Include="Views\MasterCategory\UpdateMasterCategory.cshtml" />
+    <Content Include="Views\Attractions\ManageAttractions.cshtml" />
+    <Content Include="Views\Attractions\UpdateAttractions.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1122,6 +1247,10 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\AdminCountry\" />
     <WCFMetadataStorage Include="Service References\AdminUser\" />
+    <WCFMetadataStorage Include="Service References\Attractions\" />
+    <WCFMetadataStorage Include="Service References\MasterCategory\" />
+    <WCFMetadataStorage Include="Service References\MasterCity\" />
+    <WCFMetadataStorage Include="Service References\MasterState\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessEntites\BusinessEntites.csproj">

@@ -13,11 +13,23 @@ namespace PlanGoGoService.BaseClasses
 
         public BusinessAccessLayer.Interfaces.ICountry _businessCountry;
 
+        public BusinessAccessLayer.Interfaces.IMasterState _businessMasterState;
+
+        public BusinessAccessLayer.Interfaces.IMasterCity _businessMasterCity;
+
+        public BusinessAccessLayer.Interfaces.IMasterCategory _businessMasterCategory;
+
+        public BusinessAccessLayer.Interfaces.IAttractions _businessAttractions;
+
         public BaseReference()
         {
             _businessAccess = new BusinessAccessLayer.GetListValues();
             _businessUser = new BusinessAccessLayer.User();
             _businessCountry = new BusinessAccessLayer.Admin.Country();
+            _businessMasterState = new BusinessAccessLayer.Admin.MasterState();
+            _businessMasterCity = new BusinessAccessLayer.Admin.MasterCity();
+            _businessMasterCategory = new BusinessAccessLayer.Admin.MasterCategory();
+            _businessAttractions = new BusinessAccessLayer.Admin.Attractions();
         }
     }
 }

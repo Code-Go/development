@@ -39,7 +39,11 @@ namespace PlanGoGoAdmin
             //create unitycontainer          
             IUnityContainer container = new UnityContainer()
                 .RegisterType<PlanGoGoAdmin.Repository.Interface.IUser, PlanGoGoAdmin.Repository.Reference.User>()
-                .RegisterType<PlanGoGoAdmin.Repository.Interface.ICountry,  PlanGoGoAdmin.Repository.Reference.Country>();
+                .RegisterType<PlanGoGoAdmin.Repository.Interface.ICountry,  PlanGoGoAdmin.Repository.Reference.Country>()
+            .RegisterType<PlanGoGoAdmin.Repository.Interface.IMasterState, PlanGoGoAdmin.Repository.Reference.MasterState>()
+            .RegisterType<PlanGoGoAdmin.Repository.Interface.IMasterCity, PlanGoGoAdmin.Repository.Reference.MasterCity>()
+            .RegisterType<PlanGoGoAdmin.Repository.Interface.IMasterCategory, PlanGoGoAdmin.Repository.Reference.MasterCategory>()
+            .RegisterType<PlanGoGoAdmin.Repository.Interface.IAttractions, PlanGoGoAdmin.Repository.Reference.Attractions>();
             return container;
         }
 
@@ -66,3 +70,4 @@ namespace PlanGoGoAdmin
         }
     }
 }
+

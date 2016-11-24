@@ -13,6 +13,7 @@
       <xs:element minOccurs="0" name="CountryShortName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsDefault" type="xs:boolean" />
       <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
     </xs:sequence>

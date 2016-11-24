@@ -13,6 +13,7 @@ BEGIN
       ,[CreatedDate]
       ,[ModifiedBy]
       ,[ModifiedDate]
+	  ,[IsDefault]
 	FROM [dbo].[MasterCountry]
 	WHERE CountryId = @CountryId
 

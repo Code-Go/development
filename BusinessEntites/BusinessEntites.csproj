@@ -42,9 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\AdminUser.cs" />
+    <Compile Include="Admin\MasterCategoryDTO.cs" />
+    <Compile Include="Admin\MasterCityDTO.cs" />
     <Compile Include="Admin\MasterCountryDTO.cs" />
+    <Compile Include="Admin\MasterStateDTO.cs" />
     <Compile Include="Admin_GetCountryList.cs" />
     <Compile Include="Admin_GetUser.cs" />
+    <Compile Include="Common\AttractionsDTO.cs" />
     <Compile Include="Custom\GroupWithDateAttractions.cs" />
     <Compile Include="GetAttractionOpenTime.cs" />
     <Compile Include="GetNextNearestLocation.cs" />

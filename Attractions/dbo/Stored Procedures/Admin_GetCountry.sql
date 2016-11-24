@@ -8,5 +8,6 @@ BEGIN
 			,[CreatedDate]
 			,[ModifiedBy]
 			,[ModifiedDate]
+			,[IsDefault]
 	FROM [dbo].[MasterCountry]
 END

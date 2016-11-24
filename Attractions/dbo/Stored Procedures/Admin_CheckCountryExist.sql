@@ -14,6 +14,7 @@ BEGIN
 		  ,[CreatedDate]
 		  ,[ModifiedBy]
 		  ,[ModifiedDate]
+		  ,[IsDefault]
 		FROM [dbo].[MasterCountry]
 		WHERE CountryName = @CountryName
 
@@ -29,6 +30,7 @@ BEGIN
 		  ,[CreatedDate]
 		  ,[ModifiedBy]
 		  ,[ModifiedDate]
+		  ,[IsDefault]
 		FROM [dbo].[MasterCountry]
 		WHERE CountryName = @CountryName
 		AND CountryId NOT IN (@CountryId)

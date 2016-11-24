@@ -18,7 +18,7 @@ namespace DataAccessLayer.Admin
         /// <param name="countryName"></param>
         /// <param name="countryShortName"></param>
         /// <param name="CreatedBy"></param>
-        public void Admin_UpdateCountry(int countryId, string countryName, string countryShortName,string createdBy)
+        public void Admin_UpdateCountry(int countryId, string countryName, string countryShortName,string createdBy,bool isDefault)
         {
             try
             {
@@ -28,7 +28,9 @@ namespace DataAccessLayer.Admin
                         CountryId = countryId,
                         CountryName = countryName,
                         CountryShortName = countryShortName,
-                        CreatedBy = createdBy
+                        CreatedBy = createdBy,
+                        IsDefault = isDefault 
+
                     });
             }
             catch (Exception ex)
