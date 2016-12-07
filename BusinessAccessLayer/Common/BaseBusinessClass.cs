@@ -19,6 +19,7 @@ namespace BusinessAccessLayer.Common
         public DataAccessLayer.Interface.IMasterCity _dataAccessMasterCity;
         public DataAccessLayer.Interface.IMasterCategory _dataAccessMasterCategory;
         public DataAccessLayer.Interface.IAttractions _dataAccessAttractions;
+        public DataAccessLayer.Interface.ISchedulers _dataAccessSchedulers;
 
 
         public BaseBusinessClass()
@@ -30,6 +31,7 @@ namespace BusinessAccessLayer.Common
             _dataAccessMasterCity = new DataAccessLayer.Admin.MasterCity();
             _dataAccessMasterCategory = new DataAccessLayer.Admin.MasterCategory();
             _dataAccessAttractions = new DataAccessLayer.Common.Attractions();
+            _dataAccessSchedulers = new DataAccessLayer.Schedulers.Schedulers();
 
 
             //IUnityContainer container = GetUnityContainer();

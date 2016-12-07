@@ -1,0 +1,6 @@
+C:\Srinivas\Personal\Projects\Tour\CorrectPlaceIdInformation\bin\Debug\CorrectPlaceIdInformation.exe.config
+C:\Srinivas\Personal\Projects\Tour\CorrectPlaceIdInformation\bin\Debug\CorrectPlaceIdInformation.exe
+C:\Srinivas\Personal\Projects\Tour\CorrectPlaceIdInformation\bin\Debug\CorrectPlaceIdInformation.pdb
+C:\Srinivas\Personal\Projects\Tour\CorrectPlaceIdInformation\obj\Debug\CorrectPlaceIdInformation.csprojResolveAssemblyReference.cache
+C:\Srinivas\Personal\Projects\Tour\CorrectPlaceIdInformation\obj\Debug\CorrectPlaceIdInformation.exe
+C:\Srinivas\Personal\Projects\Tour\CorrectPlaceIdInformation\obj\Debug\CorrectPlaceIdInformation.pdb

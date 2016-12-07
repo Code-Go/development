@@ -8,6 +8,7 @@ namespace CorrectPlaceIdInformation
 {
     class Program
     {
+        CorrectPlaceIdInformation.Schedulers.ISchedulers  _client = new CorrectPlaceIdInformation.Schedulers.SchedulersClient();
         static void Main(string[] args)
         {
 

@@ -21,6 +21,8 @@ namespace PlanGoGoService.BaseClasses
 
         public BusinessAccessLayer.Interfaces.IAttractions _businessAttractions;
 
+        public BusinessAccessLayer.Interfaces.ISchedulers _businessSchedulers;
+
         public BaseReference()
         {
             _businessAccess = new BusinessAccessLayer.GetListValues();
@@ -30,6 +32,7 @@ namespace PlanGoGoService.BaseClasses
             _businessMasterCity = new BusinessAccessLayer.Admin.MasterCity();
             _businessMasterCategory = new BusinessAccessLayer.Admin.MasterCategory();
             _businessAttractions = new BusinessAccessLayer.Admin.Attractions();
+            _businessSchedulers = new BusinessAccessLayer.Schedulers.Schedulers();
         }
     }
 }

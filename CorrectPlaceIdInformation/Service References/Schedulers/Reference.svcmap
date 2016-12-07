@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="234d861b-95e3-4df3-aec0-3e992155d093" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:23457/Schedulers/Schedulers.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Schedulers.wsdl" MetadataType="Wsdl" ID="186d27b9-0739-4c6e-9439-93ef6d13b4aa" SourceId="1" SourceUrl="http://localhost:23457/Schedulers/Schedulers.svc?wsdl" />
+    <MetadataFile FileName="Schedulers.xsd" MetadataType="Schema" ID="7e845452-e0d4-4d5f-95f6-6de8a615fd42" SourceId="1" SourceUrl="http://localhost:23457/Schedulers/Schedulers.svc?xsd=xsd2" />
+    <MetadataFile FileName="Schedulers1.xsd" MetadataType="Schema" ID="1a714a36-44d0-46f0-a9d6-077fe5a0dc85" SourceId="1" SourceUrl="http://localhost:23457/Schedulers/Schedulers.svc?xsd=xsd1" />
+    <MetadataFile FileName="Schedulers2.xsd" MetadataType="Schema" ID="55308ec4-c3e2-4918-8e5b-75d2617aa323" SourceId="1" SourceUrl="http://localhost:23457/Schedulers/Schedulers.svc?xsd=xsd0" />
+    <MetadataFile FileName="Schedulers.disco" MetadataType="Disco" ID="e4c4cdac-6ac6-4bcf-a05d-fcb69d8bce88" SourceId="1" SourceUrl="http://localhost:23457/Schedulers/Schedulers.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

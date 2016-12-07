@@ -42,6 +42,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Schedulers", "Schedulers", "{629984CA-8B61-40B0-8E72-01B10EEE5832}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorrectPlaceIdInformation", "CorrectPlaceIdInformation\CorrectPlaceIdInformation.csproj", "{C39A5114-F152-4872-9B09-ADC6860352B2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3B764F47-B524-48C0-9512-B03A4F804B16} = {3B764F47-B524-48C0-9512-B03A4F804B16}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
