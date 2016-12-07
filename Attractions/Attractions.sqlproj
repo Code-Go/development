@@ -123,5 +123,6 @@
     <Build Include="dbo\Stored Procedures\AttractionsOnCityId.sql" />
     <Build Include="dbo\Stored Procedures\AttractionsOnAttractionsId.sql" />
     <Build Include="dbo\Stored Procedures\AttractionsUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\Admin_GetNearestLocations.sql" />
   </ItemGroup>
 </Project>

@@ -39,6 +39,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{D77F55
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{228C6FFC-078F-482B-8B8C-CC8266D3FC3C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Schedulers", "Schedulers", "{629984CA-8B61-40B0-8E72-01B10EEE5832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorrectPlaceIdInformation", "CorrectPlaceIdInformation\CorrectPlaceIdInformation.csproj", "{C39A5114-F152-4872-9B09-ADC6860352B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +87,10 @@ Global
 		{228C6FFC-078F-482B-8B8C-CC8266D3FC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{228C6FFC-078F-482B-8B8C-CC8266D3FC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{228C6FFC-078F-482B-8B8C-CC8266D3FC3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C39A5114-F152-4872-9B09-ADC6860352B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C39A5114-F152-4872-9B09-ADC6860352B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C39A5114-F152-4872-9B09-ADC6860352B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C39A5114-F152-4872-9B09-ADC6860352B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,5 +105,6 @@ Global
 		{21727476-EBF6-4DA4-9F24-A4A761795318} = {E7E3E5DB-2066-4D11-AF18-75234F7E621D}
 		{4C4E993F-DDAA-4CDF-8CAC-F1DE98D9E70D} = {986C9AC4-AC83-44F2-8F30-1750F66AEE35}
 		{228C6FFC-078F-482B-8B8C-CC8266D3FC3C} = {D77F5573-6777-4CF8-BBDA-7B094BD79397}
+		{C39A5114-F152-4872-9B09-ADC6860352B2} = {629984CA-8B61-40B0-8E72-01B10EEE5832}
 	EndGlobalSection
 EndGlobal
